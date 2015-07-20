@@ -13,11 +13,6 @@ import org.phoenix.model.UnitLogBean;
  * 1、组装执行流方式执行流程
  * 2、使用普通方式
  * 3、插入检查点，根据检查点结果选择分支
- * 4、接口测试与插件
- * 5、jmeter插件
- * 6、浏览器定制
- * 7、定时任务
- * 8、技术选型
  * @author mengfeiyang
  *
  */

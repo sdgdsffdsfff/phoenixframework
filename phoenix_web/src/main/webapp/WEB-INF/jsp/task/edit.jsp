@@ -91,7 +91,7 @@
 					  	</c:choose>
 					  </c:forEach>
 					</c:when>
-					<c:when test="${'WEB_SCENARIO' eq taskModel.taskType || 'INTERFACE_SCENARIO' eq taskModel.taskType}">
+					<c:when test="${'WEB_SCENARIO' eq taskModel.taskType}">
 					  <c:forEach items="${beanList }" var="bl">
 					  	<c:choose>
 					  		<c:when test="${bl.id eq taskModel.taskData }"><sf:option value="${bl.id }_${bl.scenarioName }" selected="selected">${bl.id } - ${bl.scenarioName }</sf:option></c:when>

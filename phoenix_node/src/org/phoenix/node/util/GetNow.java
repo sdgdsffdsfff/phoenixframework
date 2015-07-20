@@ -1,7 +1,6 @@
 package org.phoenix.node.util;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -13,39 +12,6 @@ import java.util.Locale;
  */
 
 public class GetNow {
-	
-	/**
-	 * 获取当前日期的各种形式。
-	 * 如果不填写dateType,则返回当前的日期。
-	 * 如果dateType为yyyy，返回当前时间的‘年’<br>
-	 * 如果dateType为MM，返回当前时间的‘月’<br>
-	 * 如果dateType为dd，返回当前时间的‘日’<br>
-	 * @param dateType
-	 * @return
-	 */
-	public static String getDate(String... dateType) {
-		Calendar ca = Calendar.getInstance();
-
-		int year = ca.get(Calendar.YEAR);
-		int month = ca.get(Calendar.MONTH);
-		int day = ca.get(Calendar.DATE);
-
-		try {
-			String type = dateType[0];
-			switch (type) {
-			case "yyyy":
-				return year + "年";
-			case "MM":
-				return (month + 1) + "月";
-			case "dd":
-				return day + "日";
-			default:
-				return year + "-" + (month + 1) + "-" + (day);
-			}
-		} catch (Exception e) {
-			return year + "-" + (month + 1) + "-" + (day);
-		}
-	}
 	
 	/**
 	 * 返回默认的当前的时间。返回格式为：yyyy-MM-dd HH:mm:ss<br>
