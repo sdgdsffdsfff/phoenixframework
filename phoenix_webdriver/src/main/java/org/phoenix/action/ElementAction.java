@@ -90,6 +90,7 @@ public interface ElementAction {
 	 * @param url
 	 */
 	void openNewWindowByPhantomJs(String url);
+	void openNewWindowByPhantomJs(String url,String phantomjs);
 	/*
 	 * 使用Ie打开被测的页面
 	 */

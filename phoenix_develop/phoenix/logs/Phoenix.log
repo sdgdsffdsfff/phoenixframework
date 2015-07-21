@@ -1030,3 +1030,246 @@ Caused by: NoSuchElementException: Unable to locate element: {"method":"xpath","
 2015-07-18 07:51:55 [ main:22114 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
 2015-07-18 07:51:56 [ main:23115 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
 2015-07-18 07:51:57 [ main:23632 ] - [ INFO ] 步骤 [ closeWindow ]执行成功，参数值：null,执行结果返回值：null
+2015-07-20 19:21:02 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-07-20 19:21:02 [ main:17 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2015-07-20 19:21:02 [ main:33 ] - [ INFO ] HHH000206: hibernate.properties not found
+2015-07-20 19:21:02 [ main:33 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2015-07-20 19:21:02 [ main:64 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-07-20 19:21:02 [ main:64 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-07-20 19:21:03 [ main:439 ] - [ INFO ] HHH000041: Configured SessionFactory: null
+2015-07-20 19:21:03 [ main:798 ] - [ INFO ] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-20 19:21:03 [ main:814 ] - [ INFO ] HHH000115: Hibernate connection pool size: 20
+2015-07-20 19:21:03 [ main:814 ] - [ INFO ] HHH000006: Autocommit mode: false
+2015-07-20 19:21:03 [ main:814 ] - [ INFO ] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&characterEncoding=utf-8]
+2015-07-20 19:21:03 [ main:814 ] - [ INFO ] HHH000046: Connection properties: {user=root, password=****}
+2015-07-20 19:21:04 [ main:1564 ] - [ INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-07-20 19:21:04 [ main:1581 ] - [ INFO ] HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-07-20 19:21:04 [ main:1581 ] - [ INFO ] HHH000397: Using ASTQueryTranslatorFactory
+2015-07-20 19:21:04 [ main:2081 ] - [ INFO ] HHH000228: Running hbm2ddl schema update
+2015-07-20 19:21:04 [ main:2081 ] - [ INFO ] HHH000102: Fetching database metadata
+2015-07-20 19:21:04 [ main:2081 ] - [ INFO ] HHH000396: Updating schema
+2015-07-20 19:21:04 [ main:2237 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_batch
+2015-07-20 19:21:04 [ main:2237 ] - [ INFO ] HHH000037: Columns: [uid, tasktype, createdate, id, batchid]
+2015-07-20 19:21:04 [ main:2237 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-20 19:21:04 [ main:2237 ] - [ INFO ] HHH000126: Indexes: [primary]
+2015-07-20 19:21:04 [ main:2284 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_case
+2015-07-20 19:21:04 [ main:2284 ] - [ INFO ] HHH000037: Columns: [actor, duration, attachpath, clientip, endtime, scenariologbeanid, id, casename, starttime, enginetype, status, batchlogid]
+2015-07-20 19:21:04 [ main:2284 ] - [ INFO ] HHH000108: Foreign keys: [fke98647aeda1e53ad]
+2015-07-20 19:21:04 [ main:2284 ] - [ INFO ] HHH000126: Indexes: [fke98647aeda1e53ad, primary]
+2015-07-20 19:21:04 [ main:2315 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_scenario
+2015-07-20 19:21:04 [ main:2315 ] - [ INFO ] HHH000037: Columns: [uid, id, message, taskstatustype, scenarioname, batchlogid]
+2015-07-20 19:21:04 [ main:2315 ] - [ INFO ] HHH000108: Foreign keys: [fk7946d10eda1e53ad]
+2015-07-20 19:21:04 [ main:2315 ] - [ INFO ] HHH000126: Indexes: [fk7946d10eda1e53ad, primary]
+2015-07-20 19:21:04 [ main:2362 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_unit
+2015-07-20 19:21:04 [ main:2362 ] - [ INFO ] HHH000037: Columns: [steptype, stepname, id, screenshot, caselogid, content, status]
+2015-07-20 19:21:04 [ main:2362 ] - [ INFO ] HHH000108: Foreign keys: [fke98ea602411c9d65]
+2015-07-20 19:21:04 [ main:2362 ] - [ INFO ] HHH000126: Indexes: [fke98ea602411c9d65, primary]
+2015-07-20 19:21:05 [ main:2409 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_case
+2015-07-20 19:21:05 [ main:2409 ] - [ INFO ] HHH000037: Columns: [classname, deletemsg, casetype, remark, id, casename, create_date, msgsendtype, userid, scenarioid, codecontent, status]
+2015-07-20 19:21:05 [ main:2409 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd1d0a6140b62d9]
+2015-07-20 19:21:05 [ main:2409 ] - [ INFO ] HHH000126: Indexes: [casename, primary, fk8bd1d0a6140b62d9]
+2015-07-20 19:21:05 [ main:2440 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_data
+2015-07-20 19:21:05 [ main:2440 ] - [ INFO ] HHH000037: Columns: [caseid, datacontent, id, dataname]
+2015-07-20 19:21:05 [ main:2440 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd245201b32d119]
+2015-07-20 19:21:05 [ main:2440 ] - [ INFO ] HHH000126: Indexes: [dataname, primary, fk8bd245201b32d119]
+2015-07-20 19:21:05 [ main:2471 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_scenario
+2015-07-20 19:21:05 [ main:2471 ] - [ INFO ] HHH000037: Columns: [remark, id, create_date, userid, scenarioname]
+2015-07-20 19:21:05 [ main:2471 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-20 19:21:05 [ main:2471 ] - [ INFO ] HHH000126: Indexes: [primary, scenarioname]
+2015-07-20 19:21:05 [ main:2518 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_unit
+2015-07-20 19:21:05 [ main:2518 ] - [ INFO ] HHH000037: Columns: [locatortype, caseid, id, locatordataname, locatordata]
+2015-07-20 19:21:05 [ main:2518 ] - [ INFO ] HHH000108: Foreign keys: [fk8bda2efa1b32d119]
+2015-07-20 19:21:05 [ main:2518 ] - [ INFO ] HHH000126: Indexes: [fk8bda2efa1b32d119, locatordataname, primary]
+2015-07-20 19:21:05 [ main:2534 ] - [ INFO ] HHH000232: Schema update complete
+2015-07-20 19:21:05 [ main:2894 ] - [ INFO ] 步骤 [ addLocatorAndDatas ]执行成功，参数值：[报告查看, org.phoenix.model.CaseLogBean@a3d9978],执行结果返回值：null
+2015-07-20 19:21:05 [ main:2894 ] - [ INFO ] 步骤 [ setWebProxy ]执行成功，参数值：[org.phoenix.action.WebElementAction@61544ae6],执行结果返回值：null
+2015-07-20 19:21:15 [ main:12961 ] - [ INFO ] 步骤 [ openNewWindowByPhantomJs ]执行成功，参数值：[http://lianmeng.360.cn/account],执行结果返回值：null
+2015-07-20 19:21:15 [ main:13337 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[test],执行结果返回值：null
+2015-07-20 19:21:16 [ main:13540 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123456],执行结果返回值：null
+2015-07-20 19:21:16 [ main:13696 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[6g6m],执行结果返回值：null
+2015-07-20 19:21:16 [ main:14264 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-20 19:21:17 [ main:14435 ] - [ INFO ] 步骤 [ getText ]执行成功，参数值：null,执行结果返回值：验证码错误
+2015-07-20 19:21:18 [ main:15444 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-20 19:21:19 [ main:16710 ] - [ WARN ] 检查点 [checkIsEqual] 校验失败，相关参数：[, 验证码错误],校验结果：info:expected:<[]> but was:<[验证码错误]>
+2015-07-20 19:21:19 [ main:16920 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-20 19:21:20 [ main:17999 ] - [ INFO ] 步骤 [ webElementLinkFinder ]执行成功，参数值：[.panel-content, null],执行结果返回值：<div class=panel-content>请选择要注册的业务
+导航联盟媒体联盟
+即将开放，敬请期待换量联盟
+即将开放，敬请期待</div>
+2015-07-20 19:21:21 [ main:19309 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-20 19:21:22 [ main:19513 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[Test123],执行结果返回值：null
+2015-07-20 19:21:22 [ main:19655 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-20 19:21:22 [ main:19796 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-20 19:21:22 [ main:19939 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-20 19:21:22 [ main:20095 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[111111111111],执行结果返回值：null
+2015-07-20 19:21:22 [ main:20252 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[12312],执行结果返回值：null
+2015-07-20 19:21:23 [ main:20424 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[222222222222],执行结果返回值：null
+2015-07-20 19:21:23 [ main:20581 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[156522755555],执行结果返回值：null
+2015-07-20 19:21:23 [ main:20721 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-20 19:21:23 [ main:20878 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-20 19:21:23 [ main:21034 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123@123.com],执行结果返回值：null
+2015-07-20 19:21:23 [ main:21151 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-20 19:21:24 [ main:22151 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-20 19:21:25 [ main:23232 ] - [ INFO ] 步骤 [ closeWindow ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 10:22:59 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-07-21 10:22:59 [ main:32 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2015-07-21 10:22:59 [ main:32 ] - [ INFO ] HHH000206: hibernate.properties not found
+2015-07-21 10:22:59 [ main:32 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2015-07-21 10:22:59 [ main:47 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-07-21 10:22:59 [ main:47 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-07-21 10:22:59 [ main:219 ] - [ INFO ] HHH000041: Configured SessionFactory: null
+2015-07-21 10:22:59 [ main:439 ] - [ INFO ] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-21 10:22:59 [ main:439 ] - [ INFO ] HHH000115: Hibernate connection pool size: 20
+2015-07-21 10:22:59 [ main:439 ] - [ INFO ] HHH000006: Autocommit mode: false
+2015-07-21 10:22:59 [ main:439 ] - [ INFO ] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&characterEncoding=utf-8]
+2015-07-21 10:22:59 [ main:439 ] - [ INFO ] HHH000046: Connection properties: {user=root, password=****}
+2015-07-21 10:22:59 [ main:736 ] - [ INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-07-21 10:22:59 [ main:751 ] - [ INFO ] HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-07-21 10:22:59 [ main:751 ] - [ INFO ] HHH000397: Using ASTQueryTranslatorFactory
+2015-07-21 10:23:00 [ main:1126 ] - [ INFO ] HHH000228: Running hbm2ddl schema update
+2015-07-21 10:23:00 [ main:1126 ] - [ INFO ] HHH000102: Fetching database metadata
+2015-07-21 10:23:00 [ main:1126 ] - [ INFO ] HHH000396: Updating schema
+2015-07-21 10:23:00 [ main:1205 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_batch
+2015-07-21 10:23:00 [ main:1205 ] - [ INFO ] HHH000037: Columns: [uid, tasktype, createdate, id, batchid]
+2015-07-21 10:23:00 [ main:1205 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-21 10:23:00 [ main:1205 ] - [ INFO ] HHH000126: Indexes: [primary]
+2015-07-21 10:23:00 [ main:1220 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_case
+2015-07-21 10:23:00 [ main:1220 ] - [ INFO ] HHH000037: Columns: [actor, duration, attachpath, clientip, endtime, scenariologbeanid, id, casename, starttime, enginetype, status, batchlogid]
+2015-07-21 10:23:00 [ main:1220 ] - [ INFO ] HHH000108: Foreign keys: [fke98647aeda1e53ad]
+2015-07-21 10:23:00 [ main:1220 ] - [ INFO ] HHH000126: Indexes: [fke98647aeda1e53ad, primary]
+2015-07-21 10:23:00 [ main:1237 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_scenario
+2015-07-21 10:23:00 [ main:1237 ] - [ INFO ] HHH000037: Columns: [uid, id, message, taskstatustype, scenarioname, batchlogid]
+2015-07-21 10:23:00 [ main:1237 ] - [ INFO ] HHH000108: Foreign keys: [fk7946d10eda1e53ad]
+2015-07-21 10:23:00 [ main:1237 ] - [ INFO ] HHH000126: Indexes: [fk7946d10eda1e53ad, primary]
+2015-07-21 10:23:00 [ main:1268 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_unit
+2015-07-21 10:23:00 [ main:1268 ] - [ INFO ] HHH000037: Columns: [steptype, stepname, id, screenshot, caselogid, content, status]
+2015-07-21 10:23:00 [ main:1268 ] - [ INFO ] HHH000108: Foreign keys: [fke98ea602411c9d65]
+2015-07-21 10:23:00 [ main:1268 ] - [ INFO ] HHH000126: Indexes: [fke98ea602411c9d65, primary]
+2015-07-21 10:23:00 [ main:1284 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_case
+2015-07-21 10:23:00 [ main:1284 ] - [ INFO ] HHH000037: Columns: [classname, deletemsg, casetype, remark, id, casename, create_date, msgsendtype, userid, scenarioid, codecontent, status]
+2015-07-21 10:23:00 [ main:1284 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd1d0a6140b62d9]
+2015-07-21 10:23:00 [ main:1284 ] - [ INFO ] HHH000126: Indexes: [casename, primary, fk8bd1d0a6140b62d9]
+2015-07-21 10:23:00 [ main:1299 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_data
+2015-07-21 10:23:00 [ main:1299 ] - [ INFO ] HHH000037: Columns: [caseid, datacontent, id, dataname]
+2015-07-21 10:23:00 [ main:1299 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd245201b32d119]
+2015-07-21 10:23:00 [ main:1299 ] - [ INFO ] HHH000126: Indexes: [dataname, primary, fk8bd245201b32d119]
+2015-07-21 10:23:00 [ main:1315 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_scenario
+2015-07-21 10:23:00 [ main:1315 ] - [ INFO ] HHH000037: Columns: [remark, id, create_date, userid, scenarioname]
+2015-07-21 10:23:00 [ main:1315 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-21 10:23:00 [ main:1315 ] - [ INFO ] HHH000126: Indexes: [primary, scenarioname]
+2015-07-21 10:23:00 [ main:1331 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_unit
+2015-07-21 10:23:00 [ main:1331 ] - [ INFO ] HHH000037: Columns: [locatortype, caseid, id, locatordataname, locatordata]
+2015-07-21 10:23:00 [ main:1331 ] - [ INFO ] HHH000108: Foreign keys: [fk8bda2efa1b32d119]
+2015-07-21 10:23:00 [ main:1331 ] - [ INFO ] HHH000126: Indexes: [fk8bda2efa1b32d119, locatordataname, primary]
+2015-07-21 10:23:00 [ main:1331 ] - [ INFO ] HHH000232: Schema update complete
+2015-07-21 10:23:00 [ main:1581 ] - [ INFO ] 步骤 [ addLocatorAndDatas ]执行成功，参数值：[报告查看, org.phoenix.model.CaseLogBean@a3d9978],执行结果返回值：null
+2015-07-21 10:23:00 [ main:1581 ] - [ INFO ] 步骤 [ setWebProxy ]执行成功，参数值：[org.phoenix.action.WebElementAction@61544ae6],执行结果返回值：null
+2015-07-21 10:23:05 [ main:6119 ] - [ INFO ] 步骤 [ openNewWindowByPhantomJs ]执行成功，参数值：[http://lianmeng.360.cn/account],执行结果返回值：null
+2015-07-21 10:23:05 [ main:6386 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[test],执行结果返回值：null
+2015-07-21 10:23:05 [ main:6573 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123456],执行结果返回值：null
+2015-07-21 10:23:05 [ main:6745 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[6g6m],执行结果返回值：null
+2015-07-21 10:23:06 [ main:7151 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 10:23:06 [ main:7289 ] - [ INFO ] 步骤 [ getText ]执行成功，参数值：null,执行结果返回值：验证码错误
+2015-07-21 10:23:07 [ main:8291 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 10:23:08 [ main:9550 ] - [ WARN ] 检查点 [checkIsEqual] 校验失败，相关参数：[, 验证码错误],校验结果：info:expected:<[]> but was:<[验证码错误]>
+2015-07-21 10:23:08 [ main:9771 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 10:23:10 [ main:10880 ] - [ INFO ] 步骤 [ webElementLinkFinder ]执行成功，参数值：[.panel-content, null],执行结果返回值：<div class=panel-content>请选择要注册的业务
+导航联盟媒体联盟
+即将开放，敬请期待换量联盟
+即将开放，敬请期待</div>
+2015-07-21 10:23:11 [ main:12186 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 10:23:11 [ main:12359 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[Test123],执行结果返回值：null
+2015-07-21 10:23:11 [ main:12562 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-21 10:23:11 [ main:12709 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-21 10:23:12 [ main:12842 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-21 10:23:12 [ main:12999 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[111111111111],执行结果返回值：null
+2015-07-21 10:23:12 [ main:13139 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[12312],执行结果返回值：null
+2015-07-21 10:23:12 [ main:13327 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[222222222222],执行结果返回值：null
+2015-07-21 10:23:12 [ main:13500 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[156522755555],执行结果返回值：null
+2015-07-21 10:23:12 [ main:13656 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-21 10:23:13 [ main:13843 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-21 10:23:13 [ main:14000 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123@123.com],执行结果返回值：null
+2015-07-21 10:23:13 [ main:14118 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-21 10:23:14 [ main:15118 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 10:23:15 [ main:16261 ] - [ INFO ] 步骤 [ closeWindow ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 12:17:31 [ main:0 ] - [ INFO ] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-07-21 12:17:31 [ main:15 ] - [ INFO ] HHH000412: Hibernate Core {4.1.7.Final}
+2015-07-21 12:17:31 [ main:15 ] - [ INFO ] HHH000206: hibernate.properties not found
+2015-07-21 12:17:31 [ main:15 ] - [ INFO ] HHH000021: Bytecode provider name : javassist
+2015-07-21 12:17:31 [ main:31 ] - [ INFO ] HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-07-21 12:17:31 [ main:31 ] - [ INFO ] HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-07-21 12:17:31 [ main:187 ] - [ INFO ] HHH000041: Configured SessionFactory: null
+2015-07-21 12:17:32 [ main:390 ] - [ INFO ] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-07-21 12:17:32 [ main:390 ] - [ INFO ] HHH000115: Hibernate connection pool size: 20
+2015-07-21 12:17:32 [ main:390 ] - [ INFO ] HHH000006: Autocommit mode: false
+2015-07-21 12:17:32 [ main:390 ] - [ INFO ] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/phoenix_gui?useUnicode=true&characterEncoding=utf-8]
+2015-07-21 12:17:32 [ main:390 ] - [ INFO ] HHH000046: Connection properties: {user=root, password=****}
+2015-07-21 12:17:32 [ main:656 ] - [ INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-07-21 12:17:32 [ main:674 ] - [ INFO ] HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-07-21 12:17:32 [ main:674 ] - [ INFO ] HHH000397: Using ASTQueryTranslatorFactory
+2015-07-21 12:17:32 [ main:1033 ] - [ INFO ] HHH000228: Running hbm2ddl schema update
+2015-07-21 12:17:32 [ main:1033 ] - [ INFO ] HHH000102: Fetching database metadata
+2015-07-21 12:17:32 [ main:1033 ] - [ INFO ] HHH000396: Updating schema
+2015-07-21 12:17:32 [ main:1049 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_batch
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000037: Columns: [uid, tasktype, createdate, id, batchid]
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000126: Indexes: [primary]
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_case
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000037: Columns: [actor, duration, attachpath, clientip, endtime, scenariologbeanid, id, casename, starttime, enginetype, status, batchlogid]
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000108: Foreign keys: [fke98647aeda1e53ad]
+2015-07-21 12:17:32 [ main:1064 ] - [ INFO ] HHH000126: Indexes: [fke98647aeda1e53ad, primary]
+2015-07-21 12:17:32 [ main:1082 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_scenario
+2015-07-21 12:17:32 [ main:1082 ] - [ INFO ] HHH000037: Columns: [uid, id, message, taskstatustype, scenarioname, batchlogid]
+2015-07-21 12:17:32 [ main:1082 ] - [ INFO ] HHH000108: Foreign keys: [fk7946d10eda1e53ad]
+2015-07-21 12:17:32 [ main:1082 ] - [ INFO ] HHH000126: Indexes: [fk7946d10eda1e53ad, primary]
+2015-07-21 12:17:32 [ main:1098 ] - [ INFO ] HHH000261: Table found: phoenix_gui.l_web_unit
+2015-07-21 12:17:32 [ main:1098 ] - [ INFO ] HHH000037: Columns: [steptype, stepname, id, screenshot, caselogid, content, status]
+2015-07-21 12:17:32 [ main:1098 ] - [ INFO ] HHH000108: Foreign keys: [fke98ea602411c9d65]
+2015-07-21 12:17:32 [ main:1098 ] - [ INFO ] HHH000126: Indexes: [fke98ea602411c9d65, primary]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_case
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000037: Columns: [classname, deletemsg, casetype, remark, id, casename, create_date, msgsendtype, userid, scenarioid, codecontent, status]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd1d0a6140b62d9]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000126: Indexes: [casename, primary, fk8bd1d0a6140b62d9]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_data
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000037: Columns: [caseid, datacontent, id, dataname]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000108: Foreign keys: [fk8bd245201b32d119]
+2015-07-21 12:17:32 [ main:1113 ] - [ INFO ] HHH000126: Indexes: [dataname, primary, fk8bd245201b32d119]
+2015-07-21 12:17:32 [ main:1145 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_scenario
+2015-07-21 12:17:32 [ main:1145 ] - [ INFO ] HHH000037: Columns: [remark, id, create_date, userid, scenarioname]
+2015-07-21 12:17:32 [ main:1145 ] - [ INFO ] HHH000108: Foreign keys: []
+2015-07-21 12:17:32 [ main:1145 ] - [ INFO ] HHH000126: Indexes: [primary, scenarioname]
+2015-07-21 12:17:32 [ main:1160 ] - [ INFO ] HHH000261: Table found: phoenix_gui.t_web_unit
+2015-07-21 12:17:32 [ main:1160 ] - [ INFO ] HHH000037: Columns: [locatortype, caseid, id, locatordataname, locatordata]
+2015-07-21 12:17:32 [ main:1160 ] - [ INFO ] HHH000108: Foreign keys: [fk8bda2efa1b32d119]
+2015-07-21 12:17:32 [ main:1160 ] - [ INFO ] HHH000126: Indexes: [fk8bda2efa1b32d119, locatordataname, primary]
+2015-07-21 12:17:32 [ main:1160 ] - [ INFO ] HHH000232: Schema update complete
+2015-07-21 12:17:33 [ main:1395 ] - [ INFO ] 步骤 [ addLocatorAndDatas ]执行成功，参数值：[报告查看, org.phoenix.model.CaseLogBean@a3d9978],执行结果返回值：null
+2015-07-21 12:17:33 [ main:1395 ] - [ INFO ] 步骤 [ setWebProxy ]执行成功，参数值：[org.phoenix.action.WebElementAction@61544ae6],执行结果返回值：null
+2015-07-21 12:17:36 [ main:4494 ] - [ INFO ] 步骤 [ openNewWindowByPhantomJs ]执行成功，参数值：[http://lianmeng.360.cn/account],执行结果返回值：null
+2015-07-21 12:17:36 [ main:4683 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[test],执行结果返回值：null
+2015-07-21 12:17:36 [ main:4886 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123456],执行结果返回值：null
+2015-07-21 12:17:36 [ main:5042 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[6g6m],执行结果返回值：null
+2015-07-21 12:17:37 [ main:5373 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 12:17:37 [ main:5458 ] - [ INFO ] 步骤 [ getText ]执行成功，参数值：null,执行结果返回值：验证码错误
+2015-07-21 12:17:38 [ main:6458 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 12:17:38 [ main:6912 ] - [ WARN ] 检查点 [checkIsEqual] 校验失败，相关参数：[, 验证码错误],校验结果：info:expected:<[]> but was:<[验证码错误]>
+2015-07-21 12:17:38 [ main:7038 ] - [ INFO ] 步骤 [ click ]执行成功，参数值：null,执行结果返回值：null
+2015-07-21 12:17:39 [ main:8039 ] - [ INFO ] 步骤 [ webElementLinkFinder ]执行成功，参数值：[.panel-content, null],执行结果返回值：<div class=panel-content>请选择要注册的业务
+导航联盟媒体联盟
+即将开放，敬请期待换量联盟
+即将开放，敬请期待</div>
+2015-07-21 12:17:40 [ main:9371 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 12:17:41 [ main:9544 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[Test123],执行结果返回值：null
+2015-07-21 12:17:41 [ main:9669 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-21 12:17:41 [ main:9795 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1111],执行结果返回值：null
+2015-07-21 12:17:41 [ main:9937 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-21 12:17:41 [ main:10093 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[111111111111],执行结果返回值：null
+2015-07-21 12:17:41 [ main:10234 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[12312],执行结果返回值：null
+2015-07-21 12:17:41 [ main:10359 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[222222222222],执行结果返回值：null
+2015-07-21 12:17:42 [ main:10515 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[156522755555],执行结果返回值：null
+2015-07-21 12:17:42 [ main:10657 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-21 12:17:42 [ main:10797 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[1234],执行结果返回值：null
+2015-07-21 12:17:42 [ main:10938 ] - [ INFO ] 步骤 [ setText ]执行成功，参数值：[123@123.com],执行结果返回值：null
+2015-07-21 12:17:42 [ main:11041 ] - [ INFO ] 步骤 [ setSelected ]执行成功，参数值：[true],执行结果返回值：null
+2015-07-21 12:17:43 [ main:12041 ] - [ INFO ] 步骤 [ sleep ]执行成功，参数值：[1000],执行结果返回值：null
+2015-07-21 12:17:44 [ main:13121 ] - [ INFO ] 步骤 [ closeWindow ]执行成功，参数值：null,执行结果返回值：null

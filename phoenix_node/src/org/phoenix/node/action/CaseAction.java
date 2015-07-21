@@ -55,7 +55,7 @@ public class CaseAction implements RunAction{
 		} catch (Exception e){
         	UnitLogBean unitLog = new UnitLogBean();
         	unitLog.setCaseLogBean(caseLogBean);
-        	unitLog.setContent("Compile Fail!"+e.getMessage());
+        	unitLog.setContent("Compile Fail!"+e.getClass().getSimpleName()+","+e.getMessage());
         	unitLog.setStatus("EXCEPTION");
         	unitLog.setStepName("compile");
         	unitLog.setStepType("COMPILE");

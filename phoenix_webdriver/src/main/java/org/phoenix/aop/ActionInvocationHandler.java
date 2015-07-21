@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.utils.ScreenShot;
+import org.phoenix.utils.SystemInfo;
 
 /**
  * @author mengfeiyang
@@ -37,9 +38,15 @@ public class ActionInvocationHandler implements InvocationHandler {
 				PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行成功，参数值："+Arrays.toString(args)+",执行结果返回值："+result);
 			}
 		}catch(Exception e){
-			long picName = new Date().getTime();
-			String picPath = ScreenShot.TakeScreenshot(caseLogBean.getAttachPath()+"/screenshot/"+picName+".jpg");
-			String picWebPath = "<a href='http://"+caseLogBean.getClientIP()+"/phoenix_node/screenshot/"+picName+".jpg' target='_blank'>点击查看</a>";
+			String picPath = null;
+			String picWebPath = null;
+			if(SystemInfo.isWindows()){
+				long picName = new Date().getTime();
+				picPath = ScreenShot.TakeScreenshot(caseLogBean.getAttachPath()+"/screenshot/"+picName+".jpg");
+				picWebPath = "<a href='http://"+caseLogBean.getClientIP()+"/phoenix_node/screenshot/"+picName+".jpg' target='_blank'>点击查看</a>";
+			} else {
+				picPath = picWebPath = "Linux系统下不支持截图";
+			}
 			unitLog.add(new UnitLogBean("步骤 [ "+method.getName()+" ]执行失败，参数值："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString(),method.getName(),"STEP","FAIL",picWebPath,caseLogBean));
 			PhoenixLogger.info("步骤 [ "+method.getName()+" ]执行失败，参数值："+Arrays.toString(args)+",异常信息："+e.getClass().getSimpleName()+",msg:"+e.getMessage()+",caused by:"+e.getCause().toString()+",截图路径："+picPath);
 		}

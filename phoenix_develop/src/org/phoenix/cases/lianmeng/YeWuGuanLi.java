@@ -22,8 +22,11 @@ public class YeWuGuanLi extends WebElementActionProxy{
 		init(caseName,arg0);
 		//webProxy.setChromeDriverExePath("C:\\Users\\mengfeiyang\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
 		//webProxy.openNewWindowByChrome("http://lianmeng.360.cn/account");
-		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
-		webProxy.openNewWindowByFirefox("http://lianmeng.360.cn/account");
+		//webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+		//webProxy.openNewWindowByFirefox("http://lianmeng.360.cn/account");
+		
+		webProxy.openNewWindowByPhantomJs("http://lianmeng.360.cn/account");
+		//webProxy.openNewWindowByPhantomJs("http://lianmeng.360.cn/account","/home/mengfeiyang/tools/phantomjs-1.9.8-linux-x86_64/bin/phantomjs");
 		webProxy.webElement("#uname",null).setText("test");
 		webProxy.webElement("passwd", LocatorType.NAME).setText("123456");
 		webProxy.webElement("verifyCode", LocatorType.NAME).setText("6g6m");
