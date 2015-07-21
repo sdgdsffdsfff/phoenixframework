@@ -165,21 +165,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	public WebDriver getCurrentDriver(){
 		return WebDriverRunner.getWebDriver();
 	}
-	@Override
-	public void openNewWindowByPhantomJs(String url,String phantomjs){
-		caseLogBean.setEngineType("PhantomJsDriver");
-		DesiredCapabilities sCaps = new DesiredCapabilities();
-        sCaps.setJavascriptEnabled(true);
-        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs);
-        ArrayList<String> cliArgsCap = new ArrayList<String>();
-        cliArgsCap.add("--web-security=false");
-        cliArgsCap.add("--ssl-protocol=any");
-        cliArgsCap.add("--ignore-ssl-errors=true");
-        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cliArgsCap);
-        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_GHOSTDRIVER_CLI_ARGS, new String[]{"--logLevel=INFO"});
-        WebDriverRunner.setWebDriver(new PhantomJSDriver(sCaps));
-        Selenide.open(url);
-	}
+
 	@Override
 	public void openNewWindowByPhantomJs(String url){
 		caseLogBean.setEngineType("PhantomJsDriver");
