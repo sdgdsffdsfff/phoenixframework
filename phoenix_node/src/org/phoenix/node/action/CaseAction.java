@@ -10,6 +10,7 @@ import org.phoenix.model.CaseBean;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.ScenarioLogBean;
 import org.phoenix.model.UnitLogBean;
+import org.phoenix.node.common.LoadAggregateCase;
 import org.phoenix.node.dto.AjaxObj;
 import org.phoenix.node.model.TaskModel;
 
@@ -34,6 +35,7 @@ public class CaseAction implements RunAction{
 		CaseLogDao caseLogDao = new CaseLogDao();
 		UnitLogDao unitLogDao = new UnitLogDao();
 		CaseLogBean caseLogBean = new CaseLogBean();
+		LoadAggregateCase loadAggCase = new LoadAggregateCase();
 		
 		ExecuteMethod executeMethod = new ExecuteMethod();
 		if(caseBean.getStatus() == 0) return new AjaxObj(0,"当前用例状态为已禁用，不能执行。用例名称："+caseBean.getCaseName()+",用例Id："+caseBean.getId());
@@ -46,7 +48,7 @@ public class CaseAction implements RunAction{
 		caseLogDao.add(caseLogBean);
 		LinkedList<UnitLogBean> unitLogs = new LinkedList<UnitLogBean>();
 		try {
-			unitLogs = executeMethod.runByJavaCode(caseBean.getCodeContent(),caseLogBean);
+			unitLogs = executeMethod.runByJavaCode(loadAggCase.loadCase(caseBean.getCodeContent()),caseLogBean);
 			ajaxObj.setMsg("执行完成，可在日志管理模块查看执行结果");
 			ajaxObj.setResult(1);
 			if(taskModel.getTaskStatusType() != null && taskModel.getTaskStatusType()!= TaskStatusType.FAIL) taskModel.setTaskStatusType(TaskStatusType.SUCCESS);

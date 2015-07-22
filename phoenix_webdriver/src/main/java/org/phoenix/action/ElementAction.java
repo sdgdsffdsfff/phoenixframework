@@ -80,9 +80,35 @@ public interface ElementAction {
 	 * @return
 	 */
 	String getData(String dataName);
+	/**
+	 * 根据用例的名称添加聚合用例
+	 * @return
+	 */
+	void addAggregateCase(String caseName);
+	/**
+	 * 根据用例的id添加聚合用例
+	 * @param caseId
+	 */
+	void addAggregateCase(int caseId);
+	/**
+	 * 返回当前驱动类型
+	 * @return
+	 */
 	WebDriver getCurrentDriver();
+	/**
+	 * 设置chrome浏览器驱动的路径，一般与chrome.exe在同一目录下
+	 * @param path
+	 */
 	void setChromeDriverExePath(String path);
+	/**
+	 * 设置Firefox浏览器的安装路径
+	 * @param path
+	 */
 	void setFirefoxExePath(String path);
+	/**
+	 * 设置代理类
+	 * @param webProxy
+	 */
 	void setWebProxy(ElementAction webProxy);
 	/**
 	 * 使用Phantomjs驱动执行被测用例，Phantomjs执行用例时没有界面，url的加载，元素的定位等<br>

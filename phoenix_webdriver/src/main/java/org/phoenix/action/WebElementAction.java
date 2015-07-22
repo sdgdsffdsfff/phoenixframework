@@ -57,6 +57,9 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		this.unitLog = unitLog;
 	}
 	
+	/**
+	 * 加载用例的数据和定位信息，使用用例的id
+	 */
 	public void addLocatorAndDatas(int caseId,CaseLogBean caseLogBean){
 		setCaseLogBean(caseLogBean);
 		List<LocatorBean> llist = locatorDao.getModelList(caseId);
@@ -68,7 +71,9 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 			datas.put(dataBean.getDataName(), dataBean.getDataContent());
 		}
 	}
-	
+	/**
+	 * 加载用例的数据和定位信息，使用用例的名称
+	 */
 	public void addLocatorAndDatas(String caseName,CaseLogBean caseLogBean){
 		setCaseLogBean(caseLogBean);
 		List<LocatorBean> list = locatorDao.getModelList(caseName);
@@ -79,6 +84,20 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		for(DataBean dataBean : dlist){
 			datas.put(dataBean.getDataName(), dataBean.getDataContent());
 		}
+	}
+	/**
+	 * 添加聚合用例。根据用例的名称<br>
+	 * 聚合用例用于执行当前用例中嵌入的外部用例,仅支持一级调用
+	 */
+	public void addAggregateCase(String caseName){
+		
+	}
+	/**
+	 * 添加聚合用例。根据用例的id<br>
+	 * 聚合用例用于执行当前用例中嵌入的外部用例,仅支持一级调用
+	 */
+	public void addAggregateCase(int caseId){
+		
 	}
 	
 	public CaseLogBean getCaseLogBean() {
