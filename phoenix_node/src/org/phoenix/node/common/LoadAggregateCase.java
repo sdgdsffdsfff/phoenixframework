@@ -27,7 +27,7 @@ public class LoadAggregateCase extends CaseDao {
 				if(unit.contains(AGGREGATESTEP)){
 					String caseAct = MethodPattern.result(unit, AGGREGATESTEP+"(.*);");
 					try{
-						caseBean = loadModel(Integer.parseInt(caseAct));
+						caseBean = loadModel(Integer.parseInt(caseAct.replace("\"", "")));
 					}catch(Exception e){
 						caseBean = loadModel(caseAct);
 					}
