@@ -16,6 +16,7 @@ import org.phoenix.utils.MethodPattern;
 public class LoadAggregateCase extends CaseDao {
 	private final String AGGREGATESTEP = "webProxy.addAggregateCase";
 	private CaseBean caseBean;
+	
 	public String loadCase(String caseContent){
 		if(!caseContent.contains(AGGREGATESTEP)){
 			return caseContent;
@@ -25,9 +26,11 @@ public class LoadAggregateCase extends CaseDao {
 			for(String unit : units){
 				linkedList.add(unit);
 				if(unit.contains(AGGREGATESTEP)){
-					String caseAct = MethodPattern.result(unit, AGGREGATESTEP+"(.*);");
+					String caseAct = MethodPattern.result(unit, AGGREGATESTEP+"\\((.*)\\);");
+					caseAct = caseAct.replace("\"", "");
+					System.out.println(caseAct);
 					try{
-						caseBean = loadModel(Integer.parseInt(caseAct.replace("\"", "")));
+						caseBean = loadModel(Integer.parseInt(caseAct));
 					}catch(Exception e){
 						caseBean = loadModel(caseAct);
 					}
@@ -48,10 +51,11 @@ public class LoadAggregateCase extends CaseDao {
 		for(String unit : units){
 			if(unit.trim().startsWith("import")){
 				importString += unit + "\n";
-			} else if(unit.trim().startsWith("init(")) {
+			} else if(unit.trim().startsWith("init")) {
+				unit = unit.trim().replace("(", "\\(").replace(")", "\\)");
 				String[] units2 = content.split(unit)[1].split("\n");
 				for(String u : units2){
-					if(u.contains("getUnitLog();"))break;
+					if(u.contains("getUnitLog"))break;
 					codeContent += u + "\n";
 				}
 				break;
@@ -70,5 +74,11 @@ public class LoadAggregateCase extends CaseDao {
 		}
 		System.out.println(stringBuilder.toString());
 		return stringBuilder.toString();
+	}
+	
+	public static void main(String[] args) {
+		LoadAggregateCase lc = new LoadAggregateCase();
+		CaseBean c = lc.loadModel("用户注册");
+		lc.loadCase(c.getCodeContent());
 	}
 }

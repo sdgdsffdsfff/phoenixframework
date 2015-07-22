@@ -20,7 +20,7 @@ public class TestCase0 extends WebElementActionProxy{
 	//private static int caseName = 7;//该类在数据库中的id标识为7
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
-		init(caseName,arg0);
+		init(caseName,arg0);//若该用例被其他用例引用了，则init则为分割用的关键字。
 		//webProxy.setChromeDriverExePath("C:\\Users\\mengfeiyang\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
 		//webProxy.openNewWindowByChrome("http://lianmeng.360.cn/account");
 		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
@@ -32,7 +32,7 @@ public class TestCase0 extends WebElementActionProxy{
 		webProxy.webElement("verifyCode", LocatorType.NAME).setText("6g6m");
 		webProxy.webElement("//*[@id=\"login_form\"]/dl[4]/dd/button",LocatorType.XPATH).click();
 		
-		return getUnitLog();
+		return getUnitLog(); //若该用例被其他用例引用了，则getUnitLog则为分割用的关键字。
 	}
 
 }
