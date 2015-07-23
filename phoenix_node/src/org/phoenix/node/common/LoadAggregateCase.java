@@ -28,7 +28,6 @@ public class LoadAggregateCase extends CaseDao {
 				if(unit.contains(AGGREGATESTEP)){
 					String caseAct = MethodPattern.result(unit, AGGREGATESTEP+"\\((.*)\\);");
 					caseAct = caseAct.replace("\"", "");
-					System.out.println(caseAct);
 					try{
 						caseBean = loadModel(Integer.parseInt(caseAct));
 					}catch(Exception e){
@@ -72,13 +71,6 @@ public class LoadAggregateCase extends CaseDao {
 			stringBuilder.append(l);
 			stringBuilder.append("\n");
 		}
-		System.out.println(stringBuilder.toString());
 		return stringBuilder.toString();
-	}
-	
-	public static void main(String[] args) {
-		LoadAggregateCase lc = new LoadAggregateCase();
-		CaseBean c = lc.loadModel("用户注册");
-		lc.loadCase(c.getCodeContent());
 	}
 }
