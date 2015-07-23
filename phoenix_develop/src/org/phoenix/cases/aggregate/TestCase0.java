@@ -23,13 +23,16 @@ public class TestCase0 extends WebElementActionProxy{
 		init(caseName,arg0);//若该用例被其他用例引用了，则init则为分割用的关键字。
 		//webProxy.setChromeDriverExePath("C:\\Users\\mengfeiyang\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
 		//webProxy.openNewWindowByChrome("http://lianmeng.360.cn/account");
-		webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
-		webProxy.openNewWindowByFirefox("http://lianmeng.360.cn/account");
+		//webProxy.setFirefoxExePath("D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+		//webProxy.openNewWindowByFirefox("http://lianmeng.360.cn/account");
 		
-		//webProxy.openNewWindowByPhantomJs("http://lianmeng.360.cn/account");
+		webProxy.openNewWindowByPhantomJs("http://lianmeng.360.cn/account");
 		webProxy.webElement("#uname",null).setText("test");
 		webProxy.webElement("passwd", LocatorType.NAME).setText("123456");
 		webProxy.webElement("verifyCode", LocatorType.NAME).setText("6g6m");
+		if(webProxy.webElement("verifyCode", LocatorType.NAME).getText()!=null){
+			System.out.println("设置值成功....");
+		}
 		webProxy.webElement("//*[@id=\"login_form\"]/dl[4]/dd/button",LocatorType.XPATH).click();
 		
 		return getUnitLog(); //若该用例被其他用例引用了，则getUnitLog则为分割用的关键字。

@@ -37,7 +37,9 @@
 <body>
 <form class="form-inline definewidth m20" action="select" method="post">  
     用例名称：
-    <input type="text" name="keyWord" id="keyWord" class="abc input-default" placeholder="支持模糊查询..." value="${keyWord }"/>&nbsp;&nbsp;  
+    <input type="text" name="keyWord" id="keyWord" class="abc input-default" placeholder="支持模糊查询..." value="${keyWord }"/>&nbsp;&nbsp; 
+    场景名称： 
+    <input type="text" name="keyWord2" id="keyWord2" class="abc input-default" placeholder="支持模糊查询..." value="${keyWord2 }"/>&nbsp;&nbsp; 
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增用例</button>
 </form>
 <input type="hidden" id="scenarioId" value="${scenId }">

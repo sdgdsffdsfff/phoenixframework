@@ -71,8 +71,8 @@ public class CaseService implements ICaseService{
 	}
 
 	@Override
-	public Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid, String keyword) {
-		return caseDao.getCaseBeanPagerByKeyWord(uid, keyword);
+	public Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid, String keyword,String keyword2) {
+		return caseDao.getCaseBeanPagerByKeyWord(uid, keyword, keyword2);
 	}
   
 }

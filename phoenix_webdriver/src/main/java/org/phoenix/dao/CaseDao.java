@@ -27,7 +27,7 @@ public class CaseDao extends HibernateDaoImpl<CaseBean> implements IModelDao<Cas
 	@Override
 	public CaseBean loadModel(int Id) {
 		
-		return super.load(Id);
+		return super.load("from CaseBean where id="+Id);
 	}
 
 	/**

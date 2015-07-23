@@ -37,8 +37,8 @@ public class CaseDao extends BaseDao<CaseBean> implements ICaseDao{
 	}
 
 	@Override
-	public Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid, String keyword) {
-		return super.find("from CaseBean where userId="+uid+" And caseName like '%"+keyword+"%'");
+	public Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid, String keyword,String keyWord2) {
+		return super.find("from CaseBean where userId="+uid+" And caseName like '%"+keyword+"%' And scenarioBean.scenarioName like '%"+keyWord2+"%'");
 	}
 
 }

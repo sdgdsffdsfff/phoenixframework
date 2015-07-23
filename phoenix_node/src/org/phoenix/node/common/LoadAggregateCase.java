@@ -31,6 +31,7 @@ public class LoadAggregateCase extends CaseDao {
 					try{
 						caseBean = loadModel(Integer.parseInt(caseAct));
 					}catch(Exception e){
+						e.printStackTrace();
 						caseBean = loadModel(caseAct);
 					}
 					List<String> contents = getSubCaseData(caseBean.getCodeContent());
@@ -72,5 +73,12 @@ public class LoadAggregateCase extends CaseDao {
 			stringBuilder.append("\n");
 		}
 		return stringBuilder.toString();
+	}
+	
+	public static void main(String[] args) {
+		LoadAggregateCase l = new LoadAggregateCase();
+		CaseBean c = l.load("from CaseBean where id=11");
+		System.out.println(c.getCaseName());
+		System.out.println(l.loadCase(c.getCodeContent()));
 	}
 }

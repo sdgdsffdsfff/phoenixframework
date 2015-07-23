@@ -76,10 +76,11 @@ public class CaseController {
 		return "case/list";
 	}
 	@RequestMapping(value="/select",method=RequestMethod.POST)
-	public String select(String keyWord,Model model,HttpSession session){
+	public String select(String keyWord,String keyWord2,Model model,HttpSession session){
 		User u = (User)session.getAttribute("loginUser");
 		model.addAttribute("keyWord", keyWord);
-		model.addAttribute("datas", caseService.getCaseBeanPagerByKeyWord(u.getId(), keyWord));
+		model.addAttribute("keyWord2", keyWord2);
+		model.addAttribute("datas", caseService.getCaseBeanPagerByKeyWord(u.getId(), keyWord, keyWord2));
 		return "case/list";
 	}
 	
