@@ -19,12 +19,16 @@ public interface IModelDao<T> {
 	 */
 	List<T> getModelList(String name);
 	/**
-	 * 根据id加载model
+	 * 根据id加载
+	 * @param Id
+	 * @return
 	 */
 	T loadModel(int Id);
 	
 	/**
-	 * 根据name加载model
+	 * 根据name加载
+	 * @param name
+	 * @return
 	 */
 	T loadModel(String name);
 
