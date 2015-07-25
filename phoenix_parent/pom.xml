@@ -77,6 +77,39 @@
 					        </tags>  
 					    </configuration>  
 					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+					    <configuration>  
+					        <aggregate>true</aggregate>  
+					        <tags>  
+					            <tag>  
+					                <name>Description</name>  
+					                <placement>a</placement>  
+					                <head>用途</head>  
+					            </tag>  
+					            <tag>  
+					                <name>param</name>  
+					                <placement>a</placement>  
+					                <head>参数</head>  
+					            </tag> 
+					            <tag>  
+					                <name>return</name>  
+					                <placement>a</placement>  
+					                <head>方法返回值</head>  
+					            </tag> 
+					        </tags>  
+					    </configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin> 
                     <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
