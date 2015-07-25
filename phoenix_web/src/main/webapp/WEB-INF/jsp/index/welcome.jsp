@@ -41,6 +41,16 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
+            <td>版本1.3.2</td>
+            <td>1、phoenix_webdriver：增加了公共用例引用功能，具体示例请见phoenix_develop的org.phoenix.cases.aggregate<br>
+				2、phoenix_web：修复通过编辑任务添加的定时任务策略不生效问题<br>
+				3、phoenix_node：增加了对公共用例引用的解析功能<br>
+				4、phoenix_web：用例管理->用例列表界面增加根据场景名称筛选<br>
+				5、其他几个小bug修复<br>
+            </td>
+            <td>2015.7.25</td>
+        </tr>
+        <tr>
             <td>版本1.3.1</td>
             <td>1、phoenix_web：修复xpath作数据分离后带有'\'符号的不能正常使用问题，增加了用例类型分类<br>
 				2、phoenix_webdriver：修复webElementLinkFinder方法数据分离无效的问题，增加了对接口测试支持<br>
@@ -59,15 +69,6 @@
             </td>
             <td>2015.6.23</td>
          </tr>
-	     <tr>
-            <td>版本1.2.6</td>
-            <td>phoenix_webdriver:新增直接使用定位数据定位和使用数据库数据进行定位。<br>
-直接使用定位数据时，无需先将其录入的数据库中，若使用数据库中的数据，则需要先将定位信息录入到数据库。<br>
-增加了phantomjs驱动，可以使用无浏览器执行方式。js兼容性方面比httpunit好。修复了2个小bug。
-				phoenix_web:修复通过页面无法新增新用户的bug。增加了定时任务时间配置说明
-            </td>
-            <td>2015.6.11</td>
-        </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
            <td>mengfeiyang</td>
@@ -84,11 +85,11 @@
         <tr><th colspan="3" align="center">系统支持类型</th></tr>
         <tr>
            <td>目前最新版本</td>
-           <td colspan="2">支持Web GUI自动化测试、Web GUI自动监控与报警</td>
+           <td colspan="2">支持Web GUI/Web接口自动化测试、Web GUI/Web接口自动监控与报警</td>
         </tr>
         <tr>
            <td>下一版本计划</td>
-           <td colspan="2">增加接口测试/接口并发测试/接口监控功能</td>
+           <td colspan="2">增加移动mobile自动化测试与监控插件</td>
         </tr>
         <tr><th colspan="3" align="center">平台说明</th></tr>
         <tr>
