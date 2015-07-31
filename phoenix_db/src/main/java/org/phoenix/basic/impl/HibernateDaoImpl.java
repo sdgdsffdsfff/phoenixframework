@@ -1,9 +1,11 @@
 package org.phoenix.basic.impl;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 import org.phoenix.basic.dao.IBaseDao;
 import org.phoenix.basic.utils.HibernateUtil;
@@ -70,6 +72,17 @@ public class HibernateDaoImpl<T> implements IBaseDao<T>{
 			return null;
 	}
 	
+	public LinkedList<Object[]> loadRowDatas(String sql){
+		LinkedList<Object[]> lists = new LinkedList<Object[]>();
+		Session session = HibernateUtil.openSession();
+		Query query = session.createSQLQuery(sql);
+		ScrollableResults sr = query.scroll();
+		while(sr.next()){
+			lists.add(sr.get());
+		}
+		return lists;
+	}
+	
 	public T load(String hql){
 			Session session = HibernateUtil.openSession();
 			Query query = session.createQuery(hql);
@@ -77,7 +90,7 @@ public class HibernateDaoImpl<T> implements IBaseDao<T>{
 			session.close();
 			return t;
 	}
-
+	
 	@Override
 	public List<T> loadAll(String hql) {
 			Session session = HibernateUtil.openSession();

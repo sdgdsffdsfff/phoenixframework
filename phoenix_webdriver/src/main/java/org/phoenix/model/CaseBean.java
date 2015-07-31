@@ -42,6 +42,7 @@ public class CaseBean {
 	private int userId;
 	private Set<LocatorBean> locatorBeans;
 	private Set<DataBean> dataBeans;
+	private Set<InterfaceBatchDataBean> interfaceBatchDataBeans;
 	
 	public CaseBean() {
 		// TODO Auto-generated constructor stub
@@ -192,6 +193,17 @@ public class CaseBean {
 
 	public void setDeleteMsg(boolean isDeleteMsg) {
 		this.isDeleteMsg = isDeleteMsg;
+	}
+	@OneToMany(mappedBy="caseBean",targetEntity=InterfaceBatchDataBean.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@Fetch(FetchMode.SUBSELECT)
+	public Set<InterfaceBatchDataBean> getInterfaceBatchDataBeans() {
+		return interfaceBatchDataBeans;
+	}
+
+	public void setInterfaceBatchDataBeans(
+			Set<InterfaceBatchDataBean> interfaceBatchDataBeans) {
+		this.interfaceBatchDataBeans = interfaceBatchDataBeans;
 	}
 	
 }

@@ -1,9 +1,17 @@
 package org.phoenix.action;
 
+import static com.codeborne.selenide.Selenide.actions;
+import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getAndCheckWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,10 +29,14 @@ import org.phoenix.aop.WebApiInvocationHandler;
 import org.phoenix.api.action.APIAction;
 import org.phoenix.api.action.WebAPIAction;
 import org.phoenix.dao.DataDao;
+import org.phoenix.dao.InterfaceBatchDataDao;
+import org.phoenix.dao.InterfaceDataDao;
 import org.phoenix.dao.LocatorDao;
 import org.phoenix.enums.LocatorType;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.DataBean;
+import org.phoenix.model.InterfaceBatchDataBean;
+import org.phoenix.model.InterfaceDataBean;
 import org.phoenix.model.LocatorBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.utils.SystemInfo;
@@ -33,7 +45,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 
 /**
  * WebGUI元素的操作类
@@ -46,6 +57,8 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	private ElementAction webProxy;
 	private LocatorDao locatorDao = new LocatorDao();
 	private DataDao dataDao = new DataDao();
+	private InterfaceBatchDataDao ibatchDao = new InterfaceBatchDataDao();
+	private InterfaceDataDao idataDao = new InterfaceDataDao();
 	private HashMap<String,LocatorBean> locators = new HashMap<String,LocatorBean>();
 	private HashMap<String,String> datas = new HashMap<String,String>();
 	private CaseLogBean caseLogBean;
@@ -84,6 +97,28 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		for(DataBean dataBean : dlist){
 			datas.put(dataBean.getDataName(), dataBean.getDataContent());
 		}
+	}
+	/**
+	 * 根据给定的用例的id，获取该用例下所有的数据
+	 */
+	public LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> loadInterfaceDatas(int caseId){
+		List<InterfaceBatchDataBean> iBatchList = ibatchDao.getModelList(caseId);
+		LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> iBatchDataMap = new LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>>();
+		for(InterfaceBatchDataBean iBatch : iBatchList){
+			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getBatchDataId()));
+		}
+		return iBatchDataMap;
+	}
+	/**
+	 * 根据给定的用例的name，获取该用例下所有的数据
+	 */
+	public LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> loadInterfaceDatas(String caseName){
+		List<InterfaceBatchDataBean> iBatchList = ibatchDao.getModelList(caseName);
+		LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> iBatchDataMap = new LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>>();
+		for(InterfaceBatchDataBean iBatch : iBatchList){
+			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getBatchDataId()));
+		}
+		return iBatchDataMap;
 	}
 	/**
 	 * 添加聚合用例。根据用例的名称<br>
@@ -182,7 +217,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	}
 	@Override
 	public WebDriver getCurrentDriver(){
-		return WebDriverRunner.getWebDriver();
+		return getWebDriver();
 	}
 
 	@Override
@@ -204,8 +239,8 @@ public class WebElementAction extends WebElementLocator implements ElementAction
         cliArgsCap.add("--ignore-ssl-errors=true");
         sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cliArgsCap);
         sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_GHOSTDRIVER_CLI_ARGS, new String[]{"--logLevel=INFO"});
-        WebDriverRunner.setWebDriver(new PhantomJSDriver(sCaps));
-        Selenide.open(url);
+        setWebDriver(new PhantomJSDriver(sCaps));
+        open(url);
 	}
 	//WebElementAction.class.getResource("/").getPath().replace("%20", " ")
 	/**
@@ -215,8 +250,8 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	public void openNewWindowByIE(String url){
 			caseLogBean.setEngineType("IEDriver");
 			System.setProperty("webdriver.ie.driver", WebElementAction.class.getResource("/").getPath().replace("%20", " ")+"drivers/IEDriverServer"+SystemInfo.getArch()+".exe");
-			WebDriverRunner.setWebDriver(new InternetExplorerDriver());
-			Selenide.open(url);
+			setWebDriver(new InternetExplorerDriver());
+			open(url);
 	}
 	@Override
 	public void setChromeDriverExePath(String path){
@@ -232,8 +267,8 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		caseLogBean.setEngineType("ChromeDriver");
 		if(SystemInfo.isWindows())System.setProperty("webdriver.chrome.driver",ChromeDriverPath);
 		else System.setProperty("webdriver.chrome.driver", WebElementAction.class.getResource("/").getPath().replace("%20", " ")+"drivers/chromedriver");
-		WebDriverRunner.setWebDriver(new ChromeDriver());
-		Selenide.open(url);
+		setWebDriver(new ChromeDriver());
+		open(url);
 	}
 	
 	@Override
@@ -247,13 +282,13 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	public void openNewWindowByFirefox(String url) {
 		caseLogBean.setEngineType("FirefoxDriver");
 		if(SystemInfo.isWindows())System.setProperty("webdriver.firefox.bin", FirefoxPath);
-		WebDriverRunner.setWebDriver(new FirefoxDriver());
-		Selenide.open(url);
+		setWebDriver(new FirefoxDriver());
+		open(url);
 	}
 
 	@Override
 	public void closeWindow() {
-		Selenide.close();
+		close();
 	}
 	
 	@Override
@@ -445,7 +480,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 
 	@Override
 	public void sleep(long ms) {
-		Selenide.sleep(ms);
+		sleep(ms);
 	}
 
 	@Override
@@ -480,58 +515,58 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 	
 	@Override
 	public void switchToWindow(String title) {
-		Selenide.switchToWindow(title);
+		switchToWindow(title);
 	}
 
 	@Override
 	public void switchToWindow(int index) {
-		Selenide.switchToWindow(index);
+		switchToWindow(index);
 	}
 	
 	@Override
 	public void switchToFrame(String nameOrId){
-		WebDriverRunner.getWebDriver().switchTo().frame(nameOrId);
+		getWebDriver().switchTo().frame(nameOrId);
 	}
 	
 	public void switchToParent(){
-		WebDriverRunner.getAndCheckWebDriver().switchTo().parentFrame();
+		getAndCheckWebDriver().switchTo().parentFrame();
 	}
 	@Override
 	public String getPageSource(){
-		return WebDriverRunner.getAndCheckWebDriver().getPageSource();
+		return getAndCheckWebDriver().getPageSource();
 	}
 	@Override
 	public String screenshot(String fileName){
-		return Selenide.screenshot(fileName);
+		return screenshot(fileName);
 	}
 	
 	@Override
 	public void back() {
-		Selenide.back();
+		back();
 	}
 
 	@Override
 	public void forward() {
-		Selenide.forward();
+		forward();
 	}
 
 	@Override
 	public String title() {
-		return Selenide.title();
+		return title();
 	}
 	
 	@Override
 	public void refresh(){
-		Selenide.refresh();
+		refresh();
 	}
 	
 	public void doubleClick(){
-		Selenide.actions().doubleClick(WebElement(locatorBean.getLocatorData(),locatorBean.getLocatorType()));
+		actions().doubleClick(WebElement(locatorBean.getLocatorData(),locatorBean.getLocatorType()));
 	}
 
 	@Override
 	public void confirm(String expectedDialogText) {
-		Selenide.confirm(expectedDialogText);
+		confirm(expectedDialogText);
 	}
 
 	@Override
@@ -546,17 +581,17 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 
 	@Override
 	public void dismiss(String expectedDialogText) {
-		Selenide.dismiss(expectedDialogText);
+		dismiss(expectedDialogText);
 	}
 
 	@Override
 	public List<String> getJavascriptErrors() {
-		return Selenide.getJavascriptErrors();
+		return getJavascriptErrors();
 	}
 
 	@Override
 	public List<String> getWebDriverLogs(String logType, Level logLevel) {
-		return Selenide.getWebDriverLogs(logType, logLevel);
+		return getWebDriverLogs(logType, logLevel);
 	}
 
 }

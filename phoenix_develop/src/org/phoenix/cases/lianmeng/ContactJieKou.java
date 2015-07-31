@@ -1,5 +1,7 @@
 package org.phoenix.cases.lianmeng;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -7,6 +9,7 @@ import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.UnitLogBean;
 
+import com.meterware.httpunit.WebImage;
 import com.meterware.httpunit.WebResponse;
 
 /**
@@ -21,7 +24,7 @@ public class ContactJieKou extends WebElementActionProxy{
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
 		init(caseName,arg0);
-		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
+/*		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
 		String s = null;
 		resp.getContentLength();
 
@@ -35,7 +38,19 @@ public class ContactJieKou extends WebElementActionProxy{
 		String r = webProxy.checkPoint().checkIsMatcher("创新就是一层窗户纸", s);
 		if(r == null){
 			System.out.println("==================接口通过===================");
+		}*/
+		WebResponse res = webProxy.webAPIAction().getResponseByGet("http://lianmeng.360.cn/passport/pub/login/imagecode");
+		try {
+			FileWriter fw = new FileWriter(new File("1.jpg"));
+			fw.write(res.getText());
+			fw.flush();
+			fw.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		
 		return getUnitLog();
 	}
 	

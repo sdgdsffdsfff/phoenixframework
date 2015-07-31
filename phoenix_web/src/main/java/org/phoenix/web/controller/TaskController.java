@@ -190,6 +190,7 @@ public class TaskController {
 		model.addAttribute("taskModel",taskModel);
 		model.addAttribute("taskModelDTO",new TaskModelDTO());
 		if("WEB_CASE".equals(taskType.getName()))model.addAttribute("beanList", caseService.getCaseBeanListByUser(user.getId()));
+		if("INTERFACE_CASE".equals(taskType.getName()))model.addAttribute("beanList", caseService.getCaseBeanListByUT(user.getId(),"INTERFACE_CASE"));
 		if("WEB_SCENARIO".equals(taskType.getName()))model.addAttribute("beanList", scenarioService.getScenarioBeanList(user.getId()));
 
 		return "task/edit";

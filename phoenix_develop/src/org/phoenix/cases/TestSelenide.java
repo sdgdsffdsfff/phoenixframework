@@ -27,6 +27,17 @@ public class TestSelenide {
 	}
 	
 	@Test
+	public void test02(){
+		open("http://1.163.com");
+		if($(".w-msgbox-close").exists())$(".w-msgbox-close").click();
+		$(By.linkText("请登录")).click();
+		$("#pro-view-18").$(".w-input-input").setValue("5");
+		$("#pro-view-20").$(".w-input-input").setValue("1");
+		$("#pro-view-16").$(By.tagName("button")).click();
+		close();
+	}
+	
+	@Test
 	public void test01(){
 		open("https://www.baidu.com");
 		$("#kw").setValue("1");

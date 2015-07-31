@@ -2,6 +2,7 @@ package org.phoenix.action;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -9,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.phoenix.api.action.APIAction;
 import org.phoenix.enums.LocatorType;
 import org.phoenix.model.CaseLogBean;
+import org.phoenix.model.InterfaceBatchDataBean;
+import org.phoenix.model.InterfaceDataBean;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
@@ -33,6 +36,18 @@ public interface ElementAction {
 	 * @param caseLogBean
 	 */
 	void addLocatorAndDatas(String caseName,CaseLogBean caseLogBean);
+	
+	/**
+	 * 根据给定的用例的id，获取该用例下所有的数据
+	 * @param caseId
+	 */
+	LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> loadInterfaceDatas(int caseId);
+	
+	/**
+	 * 根据给定的用例的name，获取该用例下所有的数据
+	 * @param caseName
+	 */
+	LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> loadInterfaceDatas(String caseName);
 	/**
 	 * 不使用任何定位信息时，如close方法
 	 * @return
