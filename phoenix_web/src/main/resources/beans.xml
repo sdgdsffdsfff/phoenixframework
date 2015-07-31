@@ -25,7 +25,7 @@
      <property name="port" value="25" />
      <property name="defaultEncoding" value="UTF-8"/>    
      <property name="username" value="5156meng.feiyang" />    
-     <property name="password" value="xxxx" /> 
+     <property name="password" value="xxxxx" /> 
 	  <property name="javaMailProperties">
 	  	<props>
 	  		<prop key="mail.smtp.auth">true</prop>

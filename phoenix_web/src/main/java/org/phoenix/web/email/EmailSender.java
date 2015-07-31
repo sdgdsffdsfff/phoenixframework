@@ -41,13 +41,14 @@ public class EmailSender {
 				mail.setText(msgBean.getMsgContent()+"\r\n\r\n此邮件由系统自动发送，请勿回复！");
 				sender.send(mail);
 				msgBean.setMsgStatusType(MsgStatusType.SUCCESS);
-				msgBean.setRemark("Sent Complete");			
+				msgBean.setRemark("Sent Complete");		
+				if(msgBean.isDeleteMsg())msgService.deleteMsg(msgBean.getId());
+				else msgService.update(msgBean);
 			}catch(Exception e){
 				msgBean.setMsgStatusType(MsgStatusType.FAIL);
 				msgBean.setRemark("Send Fail:"+e.getClass().getSimpleName()+","+e.getCause());
+				msgService.update(msgBean);
 			}
-			msgService.update(msgBean);
-			if(msgBean.isDeleteMsg())msgService.deleteMsg(msgBean.getId());
 		}
 	}
 }
