@@ -1,15 +1,18 @@
 package org.phoenix.cases.lianmeng;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map.Entry;
 
 import org.phoenix.action.WebElementActionProxy;
 import org.phoenix.model.CaseLogBean;
+import org.phoenix.model.InterfaceBatchDataBean;
+import org.phoenix.model.InterfaceDataBean;
 import org.phoenix.model.UnitLogBean;
 
-import com.meterware.httpunit.WebImage;
 import com.meterware.httpunit.WebResponse;
 
 /**
@@ -18,13 +21,27 @@ import com.meterware.httpunit.WebResponse;
  *
  */
 public class ContactJieKou extends WebElementActionProxy{
-	private static String caseName = "报告查看";
+	private static String caseName = "接口测试用例";
 	public ContactJieKou() {
 	}
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
 		init(caseName,arg0);
-/*		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
+		
+		LinkedHashMap<InterfaceBatchDataBean, List<InterfaceDataBean>> datas = webProxy.loadInterfaceDatas(caseName);
+		
+		Iterator<Entry<InterfaceBatchDataBean, List<InterfaceDataBean>>> iterator = datas.entrySet().iterator();
+		while(iterator.hasNext()){
+			Entry<InterfaceBatchDataBean, List<InterfaceDataBean>> entry = iterator.next();
+			InterfaceBatchDataBean iBatchBean = entry.getKey();
+			List<InterfaceDataBean> iDatas = entry.getValue();
+			System.out.println("--数据批次："+iBatchBean.getBatchDataId()+"   期望值："+iBatchBean.getExpectData());
+			for(InterfaceDataBean iData : iDatas){
+				System.out.println("----"+iData.getDataName()+"   "+iData.getDataContent());
+			}
+		}
+		
+		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
 		String s = null;
 		resp.getContentLength();
 
@@ -38,19 +55,7 @@ public class ContactJieKou extends WebElementActionProxy{
 		String r = webProxy.checkPoint().checkIsMatcher("创新就是一层窗户纸", s);
 		if(r == null){
 			System.out.println("==================接口通过===================");
-		}*/
-		WebResponse res = webProxy.webAPIAction().getResponseByGet("http://lianmeng.360.cn/passport/pub/login/imagecode");
-		try {
-			FileWriter fw = new FileWriter(new File("1.jpg"));
-			fw.write(res.getText());
-			fw.flush();
-			fw.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		
-		
 		return getUnitLog();
 	}
 	

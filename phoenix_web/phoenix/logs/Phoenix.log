@@ -14486,3 +14486,51 @@ Field error in object 'scenarioDTO' on field 'remark': rejected value []; codes 
 11:19:30,004 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
 11:19:30,016 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
 11:19:30,083 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:37:27,128  INFO AutowiredAnnotationBeanPostProcessor:139 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+16:37:27,569 DEBUG SQL:104 - select taskmodel0_.id as id2_, taskmodel0_.beanName as beanName2_, taskmodel0_.endTime as endTime2_, taskmodel0_.jobStatus as jobStatus2_, taskmodel0_.lastTime as lastTime2_, taskmodel0_.message as message2_, taskmodel0_.slaveId as slaveId2_, taskmodel0_.startTime as startTime2_, taskmodel0_.taskData as taskData2_, taskmodel0_.taskName as taskName2_, taskmodel0_.taskParameter as taskPar10_2_, taskmodel0_.taskStatusType as taskSta11_2_, taskmodel0_.taskType as taskType2_, taskmodel0_.userId as userId2_ from t_task taskmodel0_ where taskmodel0_.jobStatus in ('WAITING' , 'RUNNING' , 'ERROR')
+16:37:30,045 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:37:30,126 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:37:30,251 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:38:00,007 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:38:00,018 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:38:00,096 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:38:30,006 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:38:30,019 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:38:30,087 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:39:00,007 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:39:00,016 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:39:00,071 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:39:30,005 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:39:30,015 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:39:30,130 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:40:00,005 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:40:00,016 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:40:00,080 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:40:30,027 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:40:30,032 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:40:30,422 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:41:00,004 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:41:00,022 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:41:00,089 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:41:30,005 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:41:30,014 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:41:30,115 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:42:00,005 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:42:00,015 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:42:00,079 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:42:30,004 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:42:30,013 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:42:30,124 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:45:00,653 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:45:00,716 DEBUG SQL:104 - select taskmodel0_.id as id2_, taskmodel0_.beanName as beanName2_, taskmodel0_.endTime as endTime2_, taskmodel0_.jobStatus as jobStatus2_, taskmodel0_.lastTime as lastTime2_, taskmodel0_.message as message2_, taskmodel0_.slaveId as slaveId2_, taskmodel0_.startTime as startTime2_, taskmodel0_.taskData as taskData2_, taskmodel0_.taskName as taskName2_, taskmodel0_.taskParameter as taskPar10_2_, taskmodel0_.taskStatusType as taskSta11_2_, taskmodel0_.taskType as taskType2_, taskmodel0_.userId as userId2_ from t_task taskmodel0_ where taskmodel0_.jobStatus in ('WAITING' , 'RUNNING' , 'ERROR')
+16:45:00,781 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:45:00,826 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:45:30,006 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:45:30,020 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:45:30,068 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:46:00,006 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:46:00,020 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:46:00,088 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:46:30,004 DEBUG SQL:104 - SELECT * from t_msgpool t WHERE t.msgStatusType='WAITING' OR t.msgStatusType='FAIL' LIMIT 0,15;
+16:46:30,014 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?
+16:46:30,082 DEBUG SQL:104 - update t_msgpool set createData=?, deleteMsg=?, msgContent=?, msgStatusType=?, remark=?, taskModelId=?, userId=? where id=?

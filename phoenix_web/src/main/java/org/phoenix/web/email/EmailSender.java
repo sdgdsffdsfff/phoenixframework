@@ -47,6 +47,7 @@ public class EmailSender {
 				msgBean.setRemark("Send Fail:"+e.getClass().getSimpleName()+","+e.getCause());
 			}
 			msgService.update(msgBean);
+			if(msgBean.isDeleteMsg())msgService.deleteMsg(msgBean.getId());
 		}
 	}
 }

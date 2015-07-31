@@ -36,7 +36,8 @@
 		<mapping class="org.phoenix.model.ScenarioLogBean"/>
 		<mapping class="org.phoenix.node.model.TaskModel"/>
 		<mapping class="org.phoenix.node.model.SlaveModel"/>
-		
+		<mapping class="org.phoenix.model.InterfaceBatchDataBean"/>
+		<mapping class="org.phoenix.model.InterfaceDataBean"/>
 		
 	</session-factory>
 </hibernate-configuration>

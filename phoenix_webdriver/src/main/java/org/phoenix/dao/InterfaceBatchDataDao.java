@@ -25,7 +25,7 @@ public class InterfaceBatchDataDao extends HibernateDaoImpl<InterfaceBatchDataBe
 	 */
 	@Override
 	public List<InterfaceBatchDataBean> getModelList(String name) {
-		return super.loadAll("from InterfaceBatchDataBean where caseBean.caseName="+name);
+		return super.loadAll("from InterfaceBatchDataBean where caseBean.caseName='"+name+"'");
 	}
 
 	@Deprecated

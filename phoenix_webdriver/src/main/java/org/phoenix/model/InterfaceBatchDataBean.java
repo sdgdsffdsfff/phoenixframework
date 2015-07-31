@@ -24,6 +24,7 @@ public class InterfaceBatchDataBean {
 	private int id;
 	private CaseBean caseBean;
 	private int batchDataId;
+	private String expectData;
 	private Set<InterfaceDataBean> interfaceDatas;
 	
 	public InterfaceBatchDataBean() {
@@ -52,6 +53,14 @@ public class InterfaceBatchDataBean {
 	public void setBatchDataId(int batchDataId) {
 		this.batchDataId = batchDataId;
 	}
+	public String getExpectData() {
+		return expectData;
+	}
+
+	public void setExpectData(String expectData) {
+		this.expectData = expectData;
+	}
+
 	@OneToMany(mappedBy="interfaceBatchDataBean",targetEntity=InterfaceDataBean.class)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@Fetch(FetchMode.SUBSELECT)

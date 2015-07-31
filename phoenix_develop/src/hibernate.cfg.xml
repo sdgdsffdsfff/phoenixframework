@@ -25,6 +25,8 @@
 		<mapping class="org.phoenix.model.CaseLogBean"/>
 		<mapping class="org.phoenix.model.UnitLogBean"/>
 		<mapping class="org.phoenix.model.ScenarioLogBean"/>
+		<mapping class="org.phoenix.model.InterfaceBatchDataBean"/>
+		<mapping class="org.phoenix.model.InterfaceDataBean"/>
 		
 	</session-factory>
 </hibernate-configuration>
