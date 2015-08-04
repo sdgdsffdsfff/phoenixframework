@@ -17,7 +17,7 @@ public class InterfaceDataDao extends HibernateDaoImpl<InterfaceDataBean> implem
 	 */
 	@Override
 	public List<InterfaceDataBean> getModelList(int uid) {
-		return super.loadAll("from InterfaceDataBean where interfaceBatchDataBean.batchDataId="+uid);
+		return super.loadAll("from InterfaceDataBean where interfaceBatchDataBean.id="+uid);
 	}
 	@Deprecated
 	@Override

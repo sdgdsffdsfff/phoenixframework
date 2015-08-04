@@ -51,6 +51,4 @@ public class InterfaceDataBean {
 	public void setDataContent(String dataContent) {
 		this.dataContent = dataContent;
 	}
-	
-	
 }

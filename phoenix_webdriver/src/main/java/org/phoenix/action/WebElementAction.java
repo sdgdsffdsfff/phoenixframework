@@ -105,7 +105,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		List<InterfaceBatchDataBean> iBatchList = ibatchDao.getModelList(caseId);
 		LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> iBatchDataMap = new LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>>();
 		for(InterfaceBatchDataBean iBatch : iBatchList){
-			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getBatchDataId()));
+			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getId()));
 		}
 		return iBatchDataMap;
 	}
@@ -116,7 +116,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 		List<InterfaceBatchDataBean> iBatchList = ibatchDao.getModelList(caseName);
 		LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>> iBatchDataMap = new LinkedHashMap<InterfaceBatchDataBean,List<InterfaceDataBean>>();
 		for(InterfaceBatchDataBean iBatch : iBatchList){
-			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getBatchDataId()));
+			iBatchDataMap.put(iBatch, idataDao.getModelList(iBatch.getId()));
 		}
 		return iBatchDataMap;
 	}

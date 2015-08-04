@@ -85,8 +85,15 @@
             <td><fmt:formatDate value="${cs.createDate }" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             <td>
                   <a href="update/${cs.id}">编辑脚本</a>&nbsp;&nbsp;
-                  <a href="<%=request.getContextPath()%>/locator/case/${cs.id}">定位信息</a>&nbsp;&nbsp;
-                  <a href="<%=request.getContextPath()%>/data/list/${cs.id}">数据</a>&nbsp;&nbsp;
+                  <c:if test="${cs.caseType eq 'WEB_CASE' }"><a href="<%=request.getContextPath()%>/locator/case/${cs.id}">定位信息</a>&nbsp;&nbsp;</c:if>
+                  <c:choose>
+                  	<c:when test="${cs.caseType eq 'INTERFACE_CASE' }">
+                  		<a href="<%=request.getContextPath()%>/data/INTERFACE_CASE/list/${cs.id}">数据</a>&nbsp;&nbsp;
+                  	</c:when>
+                  	<c:otherwise>
+                  		<a href="<%=request.getContextPath()%>/data/list/${cs.id}">数据</a>&nbsp;&nbsp;
+                  	</c:otherwise>
+                  </c:choose>
                   <a href="delete/${cs.id}">删除</a>&nbsp;&nbsp;
             </td>
         </tr>

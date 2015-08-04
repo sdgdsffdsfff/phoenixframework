@@ -15,6 +15,7 @@
 更新内容：<br>
 1、phoenix_webdriver：接口测试增加了批量参数化功能，具体示例请见phoenix_develop的org.phoenix.cases.ContactJieKou<br>
 2、phoenix_web：修复发送成功后删除功能bug<br>
+3、phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响
 <br>
 系统名称：自动化测试平台<br> 
 系统介绍： <br>

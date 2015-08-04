@@ -35,7 +35,7 @@ public class ContactJieKou extends WebElementActionProxy{
 			Entry<InterfaceBatchDataBean, List<InterfaceDataBean>> entry = iterator.next();
 			InterfaceBatchDataBean iBatchBean = entry.getKey();
 			List<InterfaceDataBean> iDatas = entry.getValue();
-			System.out.println("--数据批次："+iBatchBean.getBatchDataId()+"   期望值："+iBatchBean.getExpectData());
+			System.out.println("--数据批次："+iBatchBean.getId()+"   期望值："+iBatchBean.getExpectData());
 			for(InterfaceDataBean iData : iDatas){
 				System.out.println("----"+iData.getDataName()+"   "+iData.getDataContent());
 			}

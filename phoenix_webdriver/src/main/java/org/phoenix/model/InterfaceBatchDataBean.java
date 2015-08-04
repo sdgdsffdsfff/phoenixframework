@@ -23,7 +23,6 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class InterfaceBatchDataBean {
 	private int id;
 	private CaseBean caseBean;
-	private int batchDataId;
 	private String expectData;
 	private Set<InterfaceDataBean> interfaceDatas;
 	
@@ -46,12 +45,6 @@ public class InterfaceBatchDataBean {
 	}
 	public void setCaseBean(CaseBean caseBean) {
 		this.caseBean = caseBean;
-	}
-	public int getBatchDataId() {
-		return batchDataId;
-	}
-	public void setBatchDataId(int batchDataId) {
-		this.batchDataId = batchDataId;
 	}
 	public String getExpectData() {
 		return expectData;
