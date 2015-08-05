@@ -356,7 +356,7 @@ public class DataController {
 	 * @throws IOException
 	 */
 	@RequestMapping(value="/import/{cid}",method=RequestMethod.POST)
-	public String importDatas(@Valid SheetContentDTO sheetContentDTO, BindingResult br ,@RequestParam("attachs")MultipartFile attach,HttpServletRequest req,Model model) throws IOException{
+	public String importDatas(@Valid SheetContentDTO sheetContentDTO, BindingResult br ,@RequestParam("attachs")MultipartFile attach,HttpServletRequest req,Model model){
 		if(br.hasErrors())return "data/importData";
 		ExcelUtil excelUtil = new ExcelUtil();
 		String realpath = req.getSession().getServletContext().getRealPath("/resources/upload");
@@ -366,9 +366,14 @@ public class DataController {
 		if(errorInfo != null){model.addAttribute("errorInfo", errorInfo);return "data/importData";}
 		String filePath = realpath+"/"+req.getSession().getId()+"."+Files.getFileExtension(attach.getOriginalFilename());;
 		File f = new File(filePath);
-		FileUtils.copyInputStreamToFile(attach.getInputStream(),f);
-		excelUtil.setImportExcelPath(filePath);
-		SheetContentDTO sheetContent = excelUtil.getExcelContent(sheetContentDTO.getSheetName());
+		SheetContentDTO sheetContent = null;
+		try{
+			FileUtils.copyInputStreamToFile(attach.getInputStream(),f);
+			excelUtil.setImportExcelPath(filePath);
+			sheetContent = excelUtil.getExcelContent(sheetContentDTO.getSheetName());
+		} catch (Exception e){
+			errorInfo = "发生异常，请检查数据表的数据格式和指定的Sheet页名称是否正确。"+e.getClass().getSimpleName()+","+e.getMessage();
+		}
 		CaseBean caseBean = null;
 		if(sheetContent.getCaseId() != null)caseBean = caseService.getCaseBean(Integer.parseInt(sheetContent.getCaseId()));
 		else if(sheetContent.getCaseName() != null)caseBean = caseService.getCaseBeanByName(sheetContent.getCaseName());
