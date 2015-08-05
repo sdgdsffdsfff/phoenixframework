@@ -41,6 +41,17 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
+            <td>版本1.3.3</td>
+            <td>接口测试增加了支持批量数据参数化功能<br>
+				phoenix_web：修复发送成功后删除功能bug<br>
+				phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响<br>
+				phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护<br>
+				phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题<br>
+				phoenix_web,phoenix_node：为方便部署，都使用jdk1.7进行编译<br>
+            </td>
+            <td>2015.8.5</td>
+         </tr>
+        <tr>
             <td>版本1.3.2</td>
             <td>1、phoenix_webdriver：增加了公共用例引用功能，具体示例请见phoenix_develop的org.phoenix.cases.aggregate<br>
 				2、phoenix_web：修复通过编辑任务添加的定时任务策略不生效问题<br>
@@ -62,13 +73,6 @@
 			</td>
             <td>2015.7.10</td>
         </tr>
-        <tr>
-            <td>版本1.2.7</td>
-            <td>phoenix_webdriver:新增链式定位方式<br>
-				完善了对Chrome，Firefox浏览器的支持。具体请参见phoenix_develop中的代码示例
-            </td>
-            <td>2015.6.23</td>
-         </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
            <td>mengfeiyang</td>
