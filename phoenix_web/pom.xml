@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.3.2</version>
+    <version>1.3.3</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_web</artifactId>
   <packaging>war</packaging>
-  <description>修复通过编辑任务添加的定时任务策略不生效问题，增加用例列表界面增加根据场景名称筛选</description>
+  <description>增加对接口测试批量数据导入导出功能；修复Email发送后不能删除问题；修复编辑INTERFACE_CASE时数据带回bug</description>
   <name>phoenix_web Maven Webapp</name>
   <url>http://maven.apache.org</url>
   

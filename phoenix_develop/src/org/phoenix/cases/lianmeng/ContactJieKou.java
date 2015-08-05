@@ -39,7 +39,7 @@ public class ContactJieKou extends WebElementActionProxy{
 			InterfaceBatchDataBean iBatchBean = entry.getKey();
 			List<InterfaceDataBean> iDatas = entry.getValue();
 			System.out.println("--数据批次："+iBatchBean.getId()+"   期望值："+iBatchBean.getExpectData());
-			String url  ="http://xxx/xxx.action?";
+			String url  ="http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ctype=10&ev=1&password=&";
 			for(InterfaceDataBean iData : iDatas){
 				url += iData.getDataName()+"="+iData.getDataContent()+"&";
 			}
@@ -50,14 +50,15 @@ public class ContactJieKou extends WebElementActionProxy{
 				//如果接口返回的数据是json格式，则可以通过jsonPath取出实际值，如果不是json则可以自己通过自定义方式如正则表达式等。
 				String actual = webProxy.webAPIAction().getJSONValue(resp.getText(), "JSON.data[0].dvd.point[3].title");
 				//String actual = resp.getElementWithID("su").getText();根据页面中的id，tagName，XPath，Dom等方式取到实际值
-				webProxy.checkPoint().checkIsEqual(actual, iBatchBean.getExpectData());//使用平台的检查点进行检查，检查结果将会记录到日志中
+				String r = webProxy.checkPoint().checkIsEqual(actual, iBatchBean.getExpectData());//使用平台的检查点进行检查，检查结果将会记录到日志中
+				if(r == null)System.out.println("-----测试通过-----");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		
 		//不使用数据批次的方式
-		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
+/*		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
 		String s = null;
 		try {
 			s = webProxy.webAPIAction().getJSONValue(resp.getText(), "JSON.data[0].dvd.point[3].title");
@@ -69,7 +70,7 @@ public class ContactJieKou extends WebElementActionProxy{
 		String r = webProxy.checkPoint().checkIsMatcher("创新就是一层窗户纸", s);
 		if(r == null){
 			System.out.println("==================接口通过===================");
-		}
+		}*/
 		
 		return getUnitLog();
 	}
