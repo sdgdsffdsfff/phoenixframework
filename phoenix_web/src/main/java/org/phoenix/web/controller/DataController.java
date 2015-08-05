@@ -373,9 +373,10 @@ public class DataController {
 			sheetContent = excelUtil.getExcelContent(sheetContentDTO.getSheetName());
 		} catch (Exception e){
 			errorInfo = "发生异常，请检查数据表的数据格式和指定的Sheet页名称是否正确,"+e.getClass().getSimpleName()+","+e.getMessage();
+			model.addAttribute("errorInfo", errorInfo);
 			f.delete();
+			return "data/importData";
 		}
-		if(errorInfo != null){model.addAttribute("errorInfo", errorInfo);return "data/importData";}
 		CaseBean caseBean = null;
 		if(sheetContent.getCaseId() != null)caseBean = caseService.getCaseBean(Integer.parseInt(sheetContent.getCaseId()));
 		else if(sheetContent.getCaseName() != null)caseBean = caseService.getCaseBeanByName(sheetContent.getCaseName());
