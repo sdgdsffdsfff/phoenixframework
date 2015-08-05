@@ -49,7 +49,7 @@
     <div class="dl-log"><a href="<%=request.getContextPath()%>/login" class="dl-log-quit">请登录</a></div>
     </c:when>
     <c:otherwise>
-    <div class="dl-log" >欢迎您，<span class="dl-log-user">${loginUser.username } [ ${loginUser.roleName } ]</span><a href="<%=request.getContextPath()%>/logout" title="退出系统" class="dl-log-quit">[退出]</a>
+    <div class="dl-log" >欢迎您，<span class="dl-log-user">${loginUser.nickname } [ ${loginUser.roleName } ]</span><a href="<%=request.getContextPath()%>/logout" title="退出系统" class="dl-log-quit">[退出]</a>
     </div>
     </c:otherwise>
     </c:choose>

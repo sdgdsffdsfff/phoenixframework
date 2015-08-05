@@ -18,7 +18,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
-@Table(name="t_interface_batchData")
+@Table(name="t_interface_batchdata")
 @BatchSize(size=30)
 public class InterfaceBatchDataBean {
 	private int id;
