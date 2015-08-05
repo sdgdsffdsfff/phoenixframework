@@ -363,6 +363,7 @@ public class DataController {
 		String errorInfo= null;
 		if(attach.isEmpty()) errorInfo = "文件不能为空";
 		if(!attach.getOriginalFilename().endsWith(".xlsx") && !attach.getOriginalFilename().endsWith(".xls"))errorInfo = "请选择[xlsx、xls]格式的数据文件";
+		if(errorInfo != null){model.addAttribute("errorInfo", errorInfo);return "data/importData";}
 		String filePath = realpath+"/"+req.getSession().getId()+"."+Files.getFileExtension(attach.getOriginalFilename());;
 		File f = new File(filePath);
 		SheetContentDTO sheetContent = null;
@@ -371,7 +372,7 @@ public class DataController {
 			excelUtil.setImportExcelPath(filePath);
 			sheetContent = excelUtil.getExcelContent(sheetContentDTO.getSheetName());
 		} catch (Exception e){
-			errorInfo = "发生异常，请检查数据表的数据格式和指定的Sheet页名称是否正确。"+e.getClass().getSimpleName()+","+e.getMessage();
+			errorInfo = "发生异常，请检查数据表的数据格式和指定的Sheet页名称是否正确,"+e.getClass().getSimpleName()+","+e.getMessage();
 			f.delete();
 		}
 		if(errorInfo != null){model.addAttribute("errorInfo", errorInfo);return "data/importData";}
