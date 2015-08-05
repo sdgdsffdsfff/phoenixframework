@@ -1,7 +1,7 @@
 /**
- * Created with JetBrains PhpStorm.
- * User: kk
- * Date: 13-8-28
+ * Created with phoenixframe.
+ * User: mfy
+ * Date: 14-8-28
  * Time: 下午4:44
  */
 function U() {
@@ -27,3 +27,22 @@ function U() {
 
     return _APP_+'?'+arr.join('&');
 }
+
+function start(url){
+	var myDialog = 	art.dialog({
+		icon : 'face-smile',
+		title : '提示',
+		drag : true,
+		resize : false,
+		content : '正在处理请求....',
+		ok : true,
+	});
+
+		 JSer.url(url).ajax({
+		    method:"POST", 
+		    success:function(d){
+		    	obj = JSON.parse(d);//字符串转为json对象
+		    	myDialog.content(obj.msg);
+		    },
+		});
+  }

@@ -41,4 +41,9 @@ public class CaseDao extends BaseDao<CaseBean> implements ICaseDao{
 		return super.find("from CaseBean where userId="+uid+" And caseName like '%"+keyword+"%' And scenarioBean.scenarioName like '%"+keyWord2+"%'");
 	}
 
+	@Override
+	public CaseBean getCaseBeanByName(String name) {
+		return (CaseBean) super.queryObject("from CaseBean where caseName='"+name+"'");
+	}
+
 }

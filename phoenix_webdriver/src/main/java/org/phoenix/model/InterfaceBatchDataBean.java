@@ -26,6 +26,12 @@ public class InterfaceBatchDataBean {
 	private String expectData;
 	private Set<InterfaceDataBean> interfaceDatas;
 	
+	public InterfaceBatchDataBean(CaseBean caseBean, String expectData) {
+		super();
+		this.caseBean = caseBean;
+		this.expectData = expectData;
+	}
+
 	public InterfaceBatchDataBean() {
 	}
 	

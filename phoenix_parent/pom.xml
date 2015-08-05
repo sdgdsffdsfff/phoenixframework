@@ -492,7 +492,7 @@
 				  <configuration>
 				    <scanIntervalSeconds>5</scanIntervalSeconds>
 				    <webApp>
-				      <contextPath>/phoenix</contextPath>
+				      <contextPath>/phoenix_web</contextPath>
 				    </webApp>
 				    <connectors>
 				       <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

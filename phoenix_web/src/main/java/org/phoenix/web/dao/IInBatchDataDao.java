@@ -7,4 +7,5 @@ import org.phoenix.model.InterfaceBatchDataBean;
 
 public interface IInBatchDataDao extends IBaseDao<InterfaceBatchDataBean>{
 	List<InterfaceBatchDataBean> getInBatchList(int caseId);
+	void deleteBatchDataBean(int caseId);
 }

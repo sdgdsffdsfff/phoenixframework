@@ -15,4 +15,9 @@ public class InBatchDataDao extends BaseDao<InterfaceBatchDataBean> implements I
 		return super.list("from InterfaceBatchDataBean where caseBean.id="+caseId);
 	}
 
+	@Override
+	public void deleteBatchDataBean(int caseId) {
+		super.updateByHql("delete from InterfaceBatchDataBean where caseBean.id="+caseId);
+	}
+
 }

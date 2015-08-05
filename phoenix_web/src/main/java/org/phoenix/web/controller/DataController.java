@@ -2,6 +2,8 @@ package org.phoenix.web.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +16,14 @@ import org.phoenix.model.DataBean;
 import org.phoenix.model.InterfaceBatchDataBean;
 import org.phoenix.model.InterfaceDataBean;
 import org.phoenix.web.auth.AuthClass;
+import org.phoenix.web.dto.AjaxObj;
 import org.phoenix.web.dto.DataDTO;
+import org.phoenix.web.dto.SheetContentDTO;
 import org.phoenix.web.service.ICaseService;
 import org.phoenix.web.service.IDataService;
 import org.phoenix.web.service.IInBatchDataService;
 import org.phoenix.web.service.IInDataBeanService;
+import org.phoenix.web.util.ExcelUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,8 +31,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.io.Files;
 
 @Controller
@@ -123,6 +130,42 @@ public class DataController {
 		return "redirect:/data/list/"+cid;
 	}
 	
+	@RequestMapping(value="/export/{id}",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
+	public @ResponseBody String exportData(@PathVariable Integer id,HttpServletRequest req,Model model){
+		String sessionId = req.getSession().getId();
+		String filePath = req.getSession().getServletContext().getRealPath("/resources/upload/")+"/"+sessionId+".xlsx";
+		SheetContentDTO sheetDTO = new SheetContentDTO();
+		ExcelUtil excelUtil = new ExcelUtil();
+		CaseBean caseBean = caseService.getCaseBean(id);
+		List<String[]> parameters = new ArrayList<String[]>();
+		List<InterfaceBatchDataBean> ibatchDataList = inBatchDataService.getInBatchList(id);
+		sheetDTO.setCaseName(caseBean.getCaseName());
+		sheetDTO.setCaseId(id+"");
+		String[] paramName = null;
+		for(InterfaceBatchDataBean batchData : ibatchDataList){
+			List<InterfaceDataBean> idataBeanList = inDataBeanService.getDataBeans(batchData.getId());
+			String[] paramContent = new String[idataBeanList.size()+1];
+			paramName = new String[idataBeanList.size()+1];
+			paramName[0] = "期望值\\参数名";
+			paramContent[0] = batchData.getExpectData();
+			for(int i = 0;i<idataBeanList.size();i++){
+				paramName[i+1] = idataBeanList.get(i).getDataName();
+				paramContent[i+1] = idataBeanList.get(i).getDataContent();
+			}
+			parameters.add(paramContent);
+		}
+		sheetDTO.setParamNames(paramName);
+		sheetDTO.setParameters(parameters);
+		excelUtil.setExportExcelPath(filePath);
+		try{
+			excelUtil.exportExcel(sheetDTO);
+			String fileUrl = "http://"+req.getServerName()+":"+req.getServerPort()+"/phoenix_web/resources/upload/"+sessionId+".xlsx";
+			return JSON.toJSONString(new AjaxObj(0,"导出接口用例[ "+caseBean.getCaseName()+" ]的数据成功！<br>点击下载:<a href='"+fileUrl+"'>"+fileUrl+"</a>"));
+		}catch(Exception e){
+			return JSON.toJSONString(new AjaxObj(0,"导出接口用例[ "+caseBean.getCaseName()+" ]的数据失败！<br>"+e.getCause()));
+		}
+	}
+	
 	/**
 	 * 根据接口用例的id，列出该接口用例下游多少批参数
 	 * @param id
@@ -131,7 +174,9 @@ public class DataController {
 	 */
 	@RequestMapping("/INTERFACE_CASE/list/{id}")
 	public String iList(@PathVariable Integer id,Model model){
-		model.addAttribute("datas", inBatchDataService.getInBatchList(id));
+		List<InterfaceBatchDataBean> iilist = inBatchDataService.getInBatchList(id);
+		model.addAttribute("datas", iilist);
+		model.addAttribute("dataCount", iilist.size());
 		model.addAttribute("caseId",id);
 		return "data/ilist";
 	}
@@ -285,20 +330,54 @@ public class DataController {
 	@RequestMapping(value="/import/{cid}",method=RequestMethod.GET)
 	public String importData(@PathVariable Integer cid,Model model){
 		model.addAttribute(caseService.getCaseBean(cid));
+		model.addAttribute(new SheetContentDTO());
 		return "data/importData";
 	}
+	/**
+	 * 执行批量数据导入的操作，如果勾选了isRewrite，则会先清除表中原有的数据，然后再重新插入，<br>
+	 * 若没有勾选，则直接执行插入操作，与原有的数据共同保存在数据库中。
+	 * @param sheetContentDTO
+	 * @param br
+	 * @param attach
+	 * @param req
+	 * @param model
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/import/{cid}",method=RequestMethod.POST)
-	public String importDatas(@RequestParam("attachs")MultipartFile attach,HttpServletRequest req,Model model) throws IOException{
+	public String importDatas(@Valid SheetContentDTO sheetContentDTO, BindingResult br ,@RequestParam("attachs")MultipartFile attach,HttpServletRequest req,Model model) throws IOException{
+		if(br.hasErrors())return "data/importData";
+		ExcelUtil excelUtil = new ExcelUtil();
 		String realpath = req.getSession().getServletContext().getRealPath("/resources/upload");
 		String errorInfo= null;
 		if(attach.isEmpty()) errorInfo = "文件不能为空";
-		if(!attach.getOriginalFilename().endsWith(".txt") && !attach.getOriginalFilename().endsWith(".xlsx"))errorInfo = "请选择txt或者xlsx数据文件";
+		if(!attach.getOriginalFilename().endsWith(".xlsx") && !attach.getOriginalFilename().endsWith(".xls"))errorInfo = "请选择[xlsx、xls]格式的数据文件";
 		if(errorInfo != null){model.addAttribute("errorInfo", errorInfo);return "data/importData";}
 		String filePath = realpath+"/"+req.getSession().getId()+"."+Files.getFileExtension(attach.getOriginalFilename());;
 		File f = new File(filePath);
 		FileUtils.copyInputStreamToFile(attach.getInputStream(),f);
-		//
-		return "redirect:/data/INTERFACE_CASE/list/8";
+		excelUtil.setImportExcelPath(filePath);
+		SheetContentDTO sheetContent = excelUtil.getExcelContent(sheetContentDTO.getSheetName());
+		CaseBean caseBean = null;
+		if(sheetContent.getCaseId() != null)caseBean = caseService.getCaseBean(Integer.parseInt(sheetContent.getCaseId()));
+		else if(sheetContent.getCaseName() != null)caseBean = caseService.getCaseBeanByName(sheetContent.getCaseName());
+		if(sheetContentDTO.getIsRewrite()){
+			inBatchDataService.deleteInBatchByCaseId(caseBean.getId());
+			for(String[] params : sheetContent.getParameters()){
+				InterfaceBatchDataBean tempBatchBean = inBatchDataService.addInBatch(new InterfaceBatchDataBean(caseBean,params[0]));
+				for(int i=1;i<sheetContent.getParamNames().length;i++){
+					inDataBeanService.addDataBean(new InterfaceDataBean(tempBatchBean,sheetContent.getParamNames()[i],params[i]));
+				}
+			}
+		} else {
+			for(String[] params : sheetContent.getParameters()){
+				InterfaceBatchDataBean tempBatchBean = inBatchDataService.addInBatch(new InterfaceBatchDataBean(caseBean,params[0]));
+				for(int i=1;i<sheetContent.getParamNames().length;i++){
+					inDataBeanService.addDataBean(new InterfaceDataBean(tempBatchBean,sheetContent.getParamNames()[i],params[i]));
+				}
+			}
+		}
+		f.delete();
+		return "redirect:/data/INTERFACE_CASE/list/"+caseBean.getId();
 	}
-	
 }

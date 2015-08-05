@@ -33,23 +33,25 @@
         }
     </style>
 </head>
-<form method="post" action="" id="addForm" enctype="multipart/form-data">
+<sf:form method="post" action="" enctype="multipart/form-data"  modelAttribute="sheetContentDTO">
 <input type="hidden" id="caseId" value="${caseBean.id }">
 <table class="table table-bordered table-hover definewidth m10">
     <tr>
         <td width="10%" class="tableleft"></td>
         <td>
-			为用例：${caseBean.caseName } 批量导入数据，支持txt和xlsx。导入前请确认数据文件格式，否则会导入失败。
+			为用例：[ ${caseBean.caseName } ]批量导入数据，支持xls和xlsx。导入前请确认数据文件格式，否则会导入失败。
         </td>
     </tr>
     <tr>
         <td width="10%" class="tableleft">选择文件</td>
-        <td>
-        	<input type="file" name="attachs"/><c:if test="${not empty errorInfo }"><span>${errorInfo }</span></c:if>
+        <td colspan="2">
+        	<input type="file" name="attachs"/><c:if test="${not empty errorInfo }"><span style="color:red">${errorInfo }</span></c:if>
         </td>
-        <td>
-        	<input id="isRewrite" type="checkbox"> 是否强制覆盖已存在的数据
-        </td>
+    </tr>
+    <tr>
+    	<td>输入Sheet页名称</td>
+    	<td><sf:input type="text" path="sheetName"></sf:input><sf:errors path="sheetName"  style="color:red"></sf:errors></td>
+    	<td><sf:checkbox path="isRewrite" checked="checked"/> 是否强制覆盖已存在的数据</td>
     </tr>
     <tr>
         <td class="tableleft"></td>
@@ -59,11 +61,14 @@
         <td></td>
     </tr>
 </table>
-</form>
+</sf:form>
 <script type="text/javascript">
     $(function () {       
 		$('#backid').click(function(){
-				window.location.href="list";
+			var localObj = window.location;
+			var contextPath = localObj.pathname.split("/")[1];
+			var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
+			window.location.href=basePath+"/data/INTERFACE_CASE/list/"+${caseBean.id };
 		 });
 
     });

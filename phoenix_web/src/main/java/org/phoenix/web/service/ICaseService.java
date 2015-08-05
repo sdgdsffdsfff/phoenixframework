@@ -17,5 +17,6 @@ public interface ICaseService {
 	Pager<CaseBean> getCaseBeanPagerByScenario(int scenarioId);
 	Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid,String keyword,String keyword2);
 	CaseBean getCaseBean(int id);
+	CaseBean getCaseBeanByName(String name);
 
 }

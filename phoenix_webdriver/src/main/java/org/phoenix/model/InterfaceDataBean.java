@@ -19,6 +19,13 @@ public class InterfaceDataBean {
 	private String dataName;
 	private String dataContent;
 	
+	public InterfaceDataBean(InterfaceBatchDataBean interfaceBatchDataBean,
+			String dataName, String dataContent) {
+		super();
+		this.interfaceBatchDataBean = interfaceBatchDataBean;
+		this.dataName = dataName;
+		this.dataContent = dataContent;
+	}
 	public InterfaceDataBean() {
 	}
 	@Id

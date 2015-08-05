@@ -21,5 +21,5 @@ public interface ICaseDao extends IBaseDao<CaseBean>{
      Pager<CaseBean> getCaseBeanPagerByUser(int uid);
      Pager<CaseBean> getCaseBeanPagerByScenario(int scenarioId);
      Pager<CaseBean> getCaseBeanPagerByKeyWord(int uid,String keyword,String keyWord2);
-     
+     CaseBean getCaseBeanByName(String name);
 }

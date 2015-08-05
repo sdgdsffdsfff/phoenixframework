@@ -57,7 +57,8 @@
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.jsp" method="get">  
-<button type="button" class="btn btn-success" id="addnew">新增参数</button>
+<button type="button" class="btn btn-success" id="addnew">新增参数</button>&nbsp;&nbsp;
+<a href="<%=request.getContextPath()%>/data/INTERFACE_CASE/list/${batchBean.caseBean.id}">返回用例数据列表</a>
 </form>
 <input id="batchId" type="hidden" value="${batchBean.id} ">
 <table class="table table-bordered table-hover definewidth m10" >

@@ -44,5 +44,9 @@ public class InBatchDataService implements IInBatchDataService{
 	public InterfaceBatchDataBean getInBatchBean(int id) {
 		return iIBatchDataDao.load(id);
 	}
+	@Override
+	public void deleteInBatchByCaseId(int caseId) {
+		iIBatchDataDao.deleteBatchDataBean(caseId);		
+	}
 
 }
