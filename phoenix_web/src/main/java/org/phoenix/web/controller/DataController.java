@@ -15,6 +15,7 @@ import org.phoenix.model.CaseBean;
 import org.phoenix.model.DataBean;
 import org.phoenix.model.InterfaceBatchDataBean;
 import org.phoenix.model.InterfaceDataBean;
+import org.phoenix.utils.GetNow;
 import org.phoenix.web.auth.AuthClass;
 import org.phoenix.web.dto.AjaxObj;
 import org.phoenix.web.dto.DataDTO;
@@ -132,11 +133,11 @@ public class DataController {
 	
 	@RequestMapping(value="/export/{id}",method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	public @ResponseBody String exportData(@PathVariable Integer id,HttpServletRequest req,Model model){
-		String sessionId = req.getSession().getId();
-		String filePath = req.getSession().getServletContext().getRealPath("/resources/upload/")+"/"+sessionId+".xlsx";
+		CaseBean caseBean = caseService.getCaseBean(id);
+		String fileName = GetNow.getCurrentTime("yyyyMMddHHmmss")+"_"+caseBean.getCaseName();
+		String filePath = req.getSession().getServletContext().getRealPath("/resources/upload/")+"/"+fileName+".xlsx";
 		SheetContentDTO sheetDTO = new SheetContentDTO();
 		ExcelUtil excelUtil = new ExcelUtil();
-		CaseBean caseBean = caseService.getCaseBean(id);
 		List<String[]> parameters = new ArrayList<String[]>();
 		List<InterfaceBatchDataBean> ibatchDataList = inBatchDataService.getInBatchList(id);
 		sheetDTO.setCaseName(caseBean.getCaseName());
@@ -159,13 +160,23 @@ public class DataController {
 		excelUtil.setExportExcelPath(filePath);
 		try{
 			excelUtil.exportExcel(sheetDTO);
-			String fileUrl = "http://"+req.getServerName()+":"+req.getServerPort()+"/phoenix_web/resources/upload/"+sessionId+".xlsx";
-			return JSON.toJSONString(new AjaxObj(0,"导出接口用例[ "+caseBean.getCaseName()+" ]的数据成功！<br>点击下载:<a href='"+fileUrl+"'>"+fileUrl+"</a>"));
+			String fileUrl = "http://"+req.getServerName()+":"+req.getServerPort()+"/phoenix_web/resources/upload/"+fileName+".xlsx";
+			return JSON.toJSONString(new AjaxObj(1,"导出接口用例[ "+caseBean.getCaseName()+" ]的数据成功！<br>点击下载:<a href='"+fileUrl+"'>"+fileUrl+"</a>",fileName));
 		}catch(Exception e){
 			return JSON.toJSONString(new AjaxObj(0,"导出接口用例[ "+caseBean.getCaseName()+" ]的数据失败！<br>"+e.getCause()));
 		}
 	}
-	
+	/**
+	 * 删除不用的文件
+	 * @param fileName
+	 * @param req
+	 */
+	@RequestMapping(value="/dfile/{fileName}",method=RequestMethod.POST)
+	public @ResponseBody String deleteFile(@PathVariable String fileName,HttpServletRequest req){
+		String filePath = req.getSession().getServletContext().getRealPath("/resources/upload/")+"/"+fileName+".xlsx";
+		new File(filePath).delete();
+		return JSON.toJSONString(new AjaxObj(1,"文件[ "+fileName+" ]删除成功"));
+	}
 	/**
 	 * 根据接口用例的id，列出该接口用例下游多少批参数
 	 * @param id

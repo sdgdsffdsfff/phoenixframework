@@ -16,7 +16,10 @@ import org.phoenix.model.UnitLogBean;
 import com.meterware.httpunit.WebResponse;
 
 /**
- * 使用phoenix做接口测试的案例
+ * 使用phoenix做接口测试的案例,包括两个：<br>
+ * 1、使用多批数据对一个接口url做测试<br>
+ * 2、不使用多批数据<br>
+ * 若对wsdl形式的接口做测试，则wsdl的文件需要以Dom方式解析。使用WebResponse中的Dom即可。
  * @author mengfeiyang
  *
  */
@@ -36,15 +39,26 @@ public class ContactJieKou extends WebElementActionProxy{
 			InterfaceBatchDataBean iBatchBean = entry.getKey();
 			List<InterfaceDataBean> iDatas = entry.getValue();
 			System.out.println("--数据批次："+iBatchBean.getId()+"   期望值："+iBatchBean.getExpectData());
+			String url  ="http://xxx/xxx.action?";
 			for(InterfaceDataBean iData : iDatas){
-				System.out.println("----"+iData.getDataName()+"   "+iData.getDataContent());
+				url += iData.getDataName()+"="+iData.getDataContent()+"&";
+			}
+			url = url.substring(0, url.length()-1);
+			System.out.println(url);
+			WebResponse resp = webProxy.webAPIAction().getResponseByGet(url);
+			try {
+				//如果接口返回的数据是json格式，则可以通过jsonPath取出实际值，如果不是json则可以自己通过自定义方式如正则表达式等。
+				String actual = webProxy.webAPIAction().getJSONValue(resp.getText(), "JSON.data[0].dvd.point[3].title");
+				//String actual = resp.getElementWithID("su").getText();根据页面中的id，tagName，XPath，Dom等方式取到实际值
+				webProxy.checkPoint().checkIsEqual(actual, iBatchBean.getExpectData());//使用平台的检查点进行检查，检查结果将会记录到日志中
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 		
+		//不使用数据批次的方式
 		WebResponse resp = webProxy.webAPIAction().getResponseByGet("http://v.youku.com/player/getPlayList/VideoIDS/XNzUwODY4Nzc2/timezone/+08/version/5/source/video?ran=7318&n=3&ctype=10&ev=1&password=");
 		String s = null;
-		resp.getContentLength();
-
 		try {
 			s = webProxy.webAPIAction().getJSONValue(resp.getText(), "JSON.data[0].dvd.point[3].title");
 		} catch (IOException e) {
@@ -56,6 +70,7 @@ public class ContactJieKou extends WebElementActionProxy{
 		if(r == null){
 			System.out.println("==================接口通过===================");
 		}
+		
 		return getUnitLog();
 	}
 	

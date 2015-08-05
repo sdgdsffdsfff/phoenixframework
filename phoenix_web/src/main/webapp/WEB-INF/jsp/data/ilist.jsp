@@ -36,10 +36,10 @@
 
     </style>
     <script>
+	var localObj = window.location;
+	var contextPath = localObj.pathname.split("/")[1];
+	var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
     $(function () {
-		var localObj = window.location;
-		var contextPath = localObj.pathname.split("/")[1];
-		var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
 		var caseId = $("#caseId").val();
 		$('#addnew').click(function(){
 			window.location.href=basePath+"/data/INTERFACE_CASE/add/"+caseId;
@@ -48,25 +48,41 @@
 			window.location.href=basePath+"/data/import/"+caseId;
 		 });
 		$('#exportData').click(function(){
-			start(basePath+"/data/export/"+caseId);
+			if(confirm("确定导出吗？")){
+				start(basePath+"/data/export/"+caseId);	
+			}
 		 });
     });
-
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "index.jsp";
-			window.location.href=url;		
-		}
-	
-	}
+    
+    function start(url){
+    	var fileName;
+    	var myDialog = 	art.dialog({
+    		icon : 'face-smile',
+    		title : '提示',
+    		drag : true,
+    		resize : false,
+    		content : '正在处理请求....',
+    		ok : function(){
+     	   		 JSer.url(basePath+"/data/dfile/"+fileName).ajax({
+    	    		    method:"POST", 
+    	    	});
+    		},
+    	});
+   		 JSer.url(url).ajax({
+   		    method:"POST", 
+   		    success:function(d){
+   		    	var ajaxData = JSON.parse(d);//字符串转为json对象
+   		    	fileName = ajaxData.obj;
+   		    	myDialog.content(ajaxData.msg);
+   		    },
+   		});
+      }
 </script>
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.jsp" method="get">  
 接口用例Id：${caseId }&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">添加数据批次</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="importData">导入数据批次</button>&nbsp;&nbsp; 
-<button type="button" class="btn btn-success" id="exportData">导出当前用例所有数据</button>&nbsp;&nbsp; <c:if test="${not empty exportFilePath }"><span style="color:blue">数据表已生成：<a href="${exportFilePath}">点击下载</a></span></c:if>
+<button type="button" class="btn btn-success" id="exportData">导出当前用例所有数据</button>
 </form>
 <input id="caseId" value="${caseId }" type="hidden">
 <table class="table table-bordered table-hover definewidth m10" >
