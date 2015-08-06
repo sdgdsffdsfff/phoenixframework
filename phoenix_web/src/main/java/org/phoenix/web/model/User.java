@@ -101,7 +101,6 @@ public class User {
 	public void setRole(int role) {
 		this.role = role;
 	}
-	@Column(unique=true,nullable=false)
 	public String getRoleName() {
 		return roleName;
 	}

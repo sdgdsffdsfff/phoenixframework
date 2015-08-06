@@ -22,7 +22,7 @@ public class TestPhoenixCaseUseDBData extends WebElementActionProxy{
 		init(caseName,caseLogBean);
 		
 		webProxy.openNewWindowByIE(webProxy.getData("输入数据3"));
-		webProxy.webElement("set").setText(webProxy.getData("输入数据1"));
+		webProxy.webElement("set").setText("1111111");
 		String s = webProxy.webElement("click").getAttrValue(webProxy.getData("输入数据2"));
 		System.out.println(s);
 		webProxy.checkPoint().checkIsEqual(webProxy.getData("输入数据2"), s);
