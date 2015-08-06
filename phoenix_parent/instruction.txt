@@ -18,7 +18,7 @@
 3、phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响
 4、phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护功能。模版位于：webapps/phoenix_web/resources/upload/
 5、phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题
-6、phoenix_web：去除了用户角色的唯一性校验的外键
+6、phoenix_web：去除了用户角色的唯一性校验的索引
 7、phoenix_web,phoenix_node：都使用jdk1.7进行编译。
 <br>
 系统名称：自动化测试平台<br> 

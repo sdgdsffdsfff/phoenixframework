@@ -47,7 +47,7 @@
 				phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响<br>
 				phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护<br>
 				phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题<br>
-				phoenix_web：去除了用户角色的唯一性校验的外键<br>
+				phoenix_web：去除了用户角色的唯一性校验的索引<br>
 				phoenix_web,phoenix_node：为方便部署，都使用jdk1.7进行编译<br>
             </td>
             <td>2015.8.6</td>
