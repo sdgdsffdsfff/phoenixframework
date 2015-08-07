@@ -17,7 +17,7 @@ import java.io.File;
  */
 public class DynamicEngine {
     private static DynamicEngine ourInstance = new DynamicEngine();
-     
+    private String compileError; 
 	static String classPath = Thread.currentThread().getContextClassLoader().getResource("").getPath().replace("%20", " ");
 	 
 	static String WEB_INF = classPath.substring(0, classPath.length()-1);
@@ -25,7 +25,13 @@ public class DynamicEngine {
 	 
 	static String libPath = WEB_INF_Path+"lib/";
  
-    public static DynamicEngine getInstance() {
+    public String getCompileError() {
+		return compileError;
+	}
+	public void setCompileError(String compileError) {
+		this.compileError = compileError;
+	}
+	public static DynamicEngine getInstance() {
         return ourInstance;
     }
     private URLClassLoader parentClassLoader;
@@ -77,6 +83,7 @@ public class DynamicEngine {
             for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {
                 error = error + compilePrint(diagnostic);
             }
+            setCompileError(error);
             throw new Exception("代码编译失败，请检查代码语法是否有误");
         }
         long end = System.currentTimeMillis();

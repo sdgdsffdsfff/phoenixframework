@@ -13,7 +13,7 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.max_size">100</property>
 	    <property name="hibernate.c3p0.min_size">1</property>
 		<property name="hibernate.c3p0.timeout">5000</property>
 		<property name="hibernate.c3p0.max_statement">100</property>

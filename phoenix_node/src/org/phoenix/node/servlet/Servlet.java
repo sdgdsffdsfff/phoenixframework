@@ -1,6 +1,10 @@
 package org.phoenix.node.servlet;
 
 import java.io.IOException;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
@@ -44,6 +48,15 @@ public class Servlet extends HttpServlet {
 	}
 	@Override
 	public void destroy() {
+		Enumeration<Driver> drivers = DriverManager.getDrivers();  
+		while (drivers.hasMoreElements()) {  
+		    Driver driver = drivers.nextElement();  
+		    try {  
+		        DriverManager.deregisterDriver(driver);   
+		    } catch (SQLException e) {  
+		    	e.printStackTrace();
+		    }  
+		}  
 		executorService.shutdownNow();
 		apiService.shutdownNow();
 	}

@@ -11,6 +11,7 @@ import org.phoenix.model.CaseLogBean;
 import org.phoenix.model.ScenarioLogBean;
 import org.phoenix.model.UnitLogBean;
 import org.phoenix.node.common.LoadAggregateCase;
+import org.phoenix.node.compiler.DynamicEngine;
 import org.phoenix.node.dto.AjaxObj;
 import org.phoenix.node.model.TaskModel;
 
@@ -57,13 +58,13 @@ public class CaseAction implements RunAction{
 		} catch (Exception e){
         	UnitLogBean unitLog = new UnitLogBean();
         	unitLog.setCaseLogBean(caseLogBean);
-        	unitLog.setContent("Compile Fail!"+e.getClass().getSimpleName()+","+e.getMessage());
+        	unitLog.setContent("Compile Fail!"+e.getClass().getSimpleName()+","+e.getMessage()+",detail:"+DynamicEngine.getInstance().getCompileError());
         	unitLog.setStatus("EXCEPTION");
         	unitLog.setStepName("compile");
         	unitLog.setStepType("COMPILE");
         	unitLogs.add(unitLog);
 			ajaxObj.setResult(0);
-			ajaxObj.setMsg(e.getMessage());
+			ajaxObj.setMsg(DynamicEngine.getInstance().getCompileError());
 			taskModel.setTaskStatusType(TaskStatusType.FAIL);
 			taskModel.setMessage("Execute Fail!"+e.getMessage());
 			caseLogBean.setStatus(TaskStatusType.FAIL.getName());
