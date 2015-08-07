@@ -480,7 +480,7 @@ public class WebElementAction extends WebElementLocator implements ElementAction
 
 	@Override
 	public void sleep(long ms) {
-		sleep(ms);
+		Selenide.sleep(ms);;
 	}
 
 	@Override
