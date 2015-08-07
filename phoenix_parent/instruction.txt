@@ -11,15 +11,17 @@
 用例如果在本地调试时没有问题，那么就可以放到控制端进行执行了。<br>
 平台网站：http://www.cewan.la，中文搜：测完啦<br>
 <br>
-最新版本：1.3.3<br>
+最新版本：1.3.4<br>
 更新内容：<br>
 1、phoenix_webdriver：接口测试增加了批量参数化功能，具体示例请见phoenix_develop的org.phoenix.cases.ContactJieKou<br>
 2、phoenix_web：修复发送成功后删除功能bug<br>
-3、phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响
-4、phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护功能。模版位于：webapps/phoenix_web/resources/upload/
-5、phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题
-6、phoenix_web：去除了用户角色的唯一性校验的索引
-7、phoenix_web,phoenix_node：都使用jdk1.7进行编译。
+3、phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响<br>
+4、phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护功能。模版位于：webapps/phoenix_web/resources/upload/<br>
+5、phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题<br>
+6、phoenix_web：去除了用户角色的唯一性校验的索引<br>
+7、phoenix_web,phoenix_node：都使用jdk1.7进行编译。<br>
+8、phoenix_node：增强自身信息检查功能，通过自检地址，如：http://xx:8080/phoenix_node,将可以得到该节点即机器的详细信息<br>
+9、phoenix_web:增加了业务结构树，显示了测试场景、测试用例、测试任务三者的关联关系。并且可以直接编辑场景、用例、任务的信息，也可以直观看到每个任务的执行状态<br>
 <br>
 系统名称：自动化测试平台<br> 
 系统介绍： <br>
