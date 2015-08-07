@@ -43,7 +43,7 @@ public class DynamicEngine {
         }
         this.classpath = sb.toString();
     }
-    @SuppressWarnings({ "rawtypes", "resource" })
+    @SuppressWarnings({ "rawtypes" })
 	public Class javaCodeToClass(String fullClassName, String javaCode) throws Exception{
         long start = System.currentTimeMillis();
         Class clazz = null;
@@ -54,7 +54,7 @@ public class DynamicEngine {
 	    standfileManager.setLocation(StandardLocation.CLASS_PATH, jarFiles);
 
         ClassFileManager fileManager = new ClassFileManager(standfileManager);
-
+        
         List<JavaFileObject> jfiles = new ArrayList<JavaFileObject>();
         jfiles.add(new CharSequenceJavaFileObject(fullClassName, javaCode));
  
@@ -71,6 +71,7 @@ public class DynamicEngine {
             JavaClassObject jco = fileManager.getJavaClassObject();
             DynamicClassLoader dynamicClassLoader = new DynamicClassLoader(this.parentClassLoader);
             clazz = dynamicClassLoader.loadClass(fullClassName,jco);
+            dynamicClassLoader.close();
         } else {
             String error = "";
             for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {
@@ -80,6 +81,11 @@ public class DynamicEngine {
         }
         long end = System.currentTimeMillis();
         PhoenixLogger.info("javaCodeToClass use:"+(end-start)+"ms");
+        parentClassLoader.close();
+        standfileManager.flush();
+        standfileManager.close();
+        fileManager.flush();
+        fileManager.close();
         return clazz;
     }
  
