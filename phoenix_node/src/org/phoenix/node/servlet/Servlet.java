@@ -59,6 +59,11 @@ public class Servlet extends HttpServlet {
 		}  
 		executorService.shutdownNow();
 		apiService.shutdownNow();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
