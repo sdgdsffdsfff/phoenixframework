@@ -66,5 +66,9 @@ public class TaskService implements ITaskService{
 	public List<TaskModel> getTaskModelListForJob() {
 		return taskDao.getTaskModelListByJob();
 	}
+	@Override
+	public List<TaskModel> getTaskModelListByUid(int uid) {
+		return taskDao.getTaskModelListByUid(uid);
+	}
 
 }

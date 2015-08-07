@@ -41,16 +41,18 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
-            <td>版本1.3.3</td>
+            <td>版本1.3.4</td>
             <td>接口测试增加了支持批量数据参数化功能<br>
 				phoenix_web：修复发送成功后删除功能bug<br>
 				phoenix_web：增加了用于接口批量参数化的两张表，其他表结构不受影响<br>
 				phoenix_web：增加接口测试批量数据的批量导入、导出，以及数据的在线维护<br>
 				phoenix_web：修复编辑INTERFACE_CASE时，数据没有带出来问题<br>
 				phoenix_web：去除了用户角色的唯一性校验的索引<br>
+				phoenix_web：增加业务结构树功能<br>
+				phoenix_node：强化了node节点的自检功能，如健康自检，硬件信息自检，数据库连接池自检，环境自检等<br>
 				phoenix_web,phoenix_node：为方便部署，都使用jdk1.7进行编译<br>
             </td>
-            <td>2015.8.6</td>
+            <td>2015.8.7</td>
          </tr>
         <tr>
             <td>版本1.3.2</td>

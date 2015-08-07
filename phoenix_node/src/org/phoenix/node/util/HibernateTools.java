@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.stat.Statistics;
 
 public class HibernateTools {
 	private final static SessionFactory FACTORY = buildSessionFactory();
@@ -22,6 +23,10 @@ public class HibernateTools {
 	
 	public static Session openSession() {
 		return FACTORY.openSession();
+	}
+	
+	public static Statistics getStatistics(){
+		return FACTORY.getStatistics();
 	}
 	
 	public static void close(Session session) {

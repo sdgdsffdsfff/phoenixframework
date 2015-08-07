@@ -32,4 +32,9 @@ public class TaskDao extends BaseDao<TaskModel> implements ITaskDao{
 		return super.list("from TaskModel where jobStatus in('WAITING','RUNNING','ERROR')");
 	}
 
+	@Override
+	public List<TaskModel> getTaskModelListByUid(int uid) {
+		return super.list("from TaskModel t where t.user.id="+uid);
+	}
+
 }

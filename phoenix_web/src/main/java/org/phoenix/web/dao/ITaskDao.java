@@ -17,6 +17,7 @@ public interface ITaskDao extends IBaseDao<TaskModel>{
 	 * 获取当前用户下的任务
 	 */
      Pager<TaskModel> getTaskModelPagerByUser(int uid);
+     List<TaskModel> getTaskModelListByUid(int uid);
      
      /*
       * 根据任务类型筛选

@@ -43,5 +43,6 @@ public interface ITaskService {
 	Pager<TaskModel> getTaskModelPagerBySelect(int uid, String status,String taskType,String jobStatus);
 	
 	List<TaskModel> getTaskModelListForJob();
+	List<TaskModel> getTaskModelListByUid(int uid);
 
 }

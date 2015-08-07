@@ -63,6 +63,11 @@ public class AuthController {
 		    	                        "\"id\": \"2\","+
 		    	                        "\"text\": \"用例管理\","+
 		    	                        "\"href\": \"case/list\""+
+	    	                         "},"+
+	    	    	                 "{"+
+		    	                        "\"id\": \"12\","+
+		    	                        "\"text\": \"业务树形图\","+
+		    	                        "\"href\": \"tree/show\""+
 	    	                         "}"+
     	    	                "]"+
     	    	            "},"+
@@ -95,17 +100,17 @@ public class AuthController {
     	    	                "\"text\": \"日志管理\","+
     	    	                "\"items\": ["+
     	    	                    "{"+
-    	    	                        "\"id\": \"6\","+
+    	    	                        "\"id\": \"7\","+
     	    	                        "\"text\": \"日志查看\","+
     	    	                        "\"href\": \"log/batchlist\""+
     	    	                    "},"+
     	    	                    "{"+
-		    	                        "\"id\": \"7\","+
+		    	                        "\"id\": \"8\","+
 		    	                        "\"text\": \"用例统计图\","+
 		    	                        "\"href\": \"chart/CASE\""+
 	    	                        "},"+
     	    	                    "{"+
-		    	                        "\"id\": \"8\","+
+		    	                        "\"id\": \"9\","+
 		    	                        "\"text\": \"场景统计图\","+
 		    	                        "\"href\": \"chart/SCENARIO\""+
 	    	                        "}"+
@@ -115,7 +120,7 @@ public class AuthController {
 		    	               "\"text\": \"消息池管理\","+
 		    	               "\"items\": ["+
 		    	                      "{"+
-		    	                        "\"id\": \"9\","+
+		    	                        "\"id\": \"10\","+
 		    	                        "\"text\": \"消息列表\","+
 		    	                        "\"href\": \"msg/list\""+
 		    	                      "}"+
@@ -125,7 +130,7 @@ public class AuthController {
 		    	               "\"text\": \"附件管理\","+
 		    	               "\"items\": ["+
 		    	                      "{"+
-		    	                        "\"id\": \"10\","+
+		    	                        "\"id\": \"11\","+
 		    	                        "\"text\": \"我的附件\","+
 		    	                        "\"href\": \"attach/list\""+
 		    	                      "}"+
@@ -172,6 +177,11 @@ public class AuthController {
 		    	                        "\"id\": \"2\","+
 		    	                        "\"text\": \"用例管理\","+
 		    	                        "\"href\": \"case/list\""+
+	    	                         "},"+
+	    	    	                 "{"+
+		    	                        "\"id\": \"12\","+
+		    	                        "\"text\": \"业务树形图\","+
+		    	                        "\"href\": \"tree/show\""+
 	    	                         "}"+
     	    	                "]"+
     	    	            "},"+
@@ -204,17 +214,17 @@ public class AuthController {
     	    	                "\"text\": \"日志管理\","+
     	    	                "\"items\": ["+
     	    	                    "{"+
-    	    	                        "\"id\": \"6\","+
+    	    	                        "\"id\": \"7\","+
     	    	                        "\"text\": \"日志查看\","+
     	    	                        "\"href\": \"log/batchlist\""+
     	    	                    "},"+
     	    	                    "{"+
-		    	                        "\"id\": \"7\","+
+		    	                        "\"id\": \"8\","+
 		    	                        "\"text\": \"用例统计图\","+
 		    	                        "\"href\": \"chart/CASE\""+
 	    	                        "},"+
     	    	                    "{"+
-		    	                        "\"id\": \"8\","+
+		    	                        "\"id\": \"9\","+
 		    	                        "\"text\": \"场景统计图\","+
 		    	                        "\"href\": \"chart/SCENARIO\""+
 	    	                        "}"+
@@ -224,7 +234,7 @@ public class AuthController {
 		    	               "\"text\": \"消息池管理\","+
 		    	               "\"items\": ["+
 		    	                      "{"+
-		    	                        "\"id\": \"9\","+
+		    	                        "\"id\": \"10\","+
 		    	                        "\"text\": \"消息列表\","+
 		    	                        "\"href\": \"msg/list\""+
 		    	                      "}"+
@@ -234,7 +244,7 @@ public class AuthController {
 		    	               "\"text\": \"附件管理\","+
 		    	               "\"items\": ["+
 		    	                      "{"+
-		    	                        "\"id\": \"10\","+
+		    	                        "\"id\": \"11\","+
 		    	                        "\"text\": \"我的附件\","+
 		    	                        "\"href\": \"attach/list\""+
 		    	                      "}"+
