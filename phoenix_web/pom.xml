@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.3.3</version>
+    <version>1.3.4</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_web</artifactId>
   <packaging>war</packaging>
-  <description>增加对接口测试批量数据导入导出功能；修复Email发送后不能删除问题；修复编辑INTERFACE_CASE时数据带回bug；去除了用户角色的唯一性校验的索引</description>
+  <description>增加对接口测试批量数据导入导出功能；修复Email发送后不能删除问题；修复编辑INTERFACE_CASE时数据带回bug；去除了用户角色的唯一性校验的索引；增加了业务结构树形图</description>
   <name>phoenix_web Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
