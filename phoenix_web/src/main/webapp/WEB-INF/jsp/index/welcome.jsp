@@ -48,7 +48,7 @@
 				4、phoenix_interface：增加对cookie，proxy等设置<br>
 				其他：<br>
 				1、spring版本从3.1.2.Release升级到3.2.9.Release
-				2、增加对jetty9的支持
+				2、增加对jetty 9 的支持
 			</td>
             <td>2015.8.11</td>
         </tr>
