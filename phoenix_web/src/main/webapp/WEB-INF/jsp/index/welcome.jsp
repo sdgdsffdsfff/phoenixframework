@@ -45,6 +45,7 @@
             <td>1、phoenix_db：封装了Druid，通过Druid可以轻量级的对其他数据库进行操作<br>
 				2、phoenix_node：增加在执行过程中对第三方数据库进行操作<br>
 				3、phoenix_web：优化对异常信息的处理
+				4、spring版本从3.1.2.Release升级到3.2.9.Release
 			</td>
             <td>2015.8.11</td>
         </tr>

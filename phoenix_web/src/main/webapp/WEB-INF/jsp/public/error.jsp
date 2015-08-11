@@ -39,7 +39,7 @@
 <form class="form-inline definewidth m20">  
     <h4>捕捉到异常信息：</h4>
     <hr>
-          ${exception.message }
+          ${exception }
 </form>
 </body>
 </html>
