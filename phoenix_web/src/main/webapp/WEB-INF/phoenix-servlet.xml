@@ -70,7 +70,9 @@
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="org.phoenix.web.exception.PhoenixException">error</prop>
+				<prop key="org.phoenix.web.exception.PhoenixException">public/error</prop>
+				<prop key="java.lang.Exception">public/error</prop>
+				<prop key="java.lang.NullPointerException">public/login</prop>
 			</props>
 		</property>
 	</bean>

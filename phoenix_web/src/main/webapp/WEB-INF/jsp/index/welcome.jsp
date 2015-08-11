@@ -41,6 +41,14 @@
            <th colspan="3" align="center">版本说明</th>
         </tr>
         <tr>
+            <td>版本1.3.5</td>
+            <td>1、phoenix_db：封装了Druid，通过Druid可以轻量级的对其他数据库进行操作<br>
+				2、phoenix_node：增加在执行过程中对第三方数据库进行操作<br>
+				3、phoenix_web：优化对异常信息的处理
+			</td>
+            <td>2015.8.11</td>
+        </tr>
+        <tr>
             <td>版本1.3.4</td>
             <td>接口测试增加了支持批量数据参数化功能<br>
 				phoenix_web：修复发送成功后删除功能bug<br>
@@ -63,18 +71,6 @@
 				5、其他几个小bug修复<br>
             </td>
             <td>2015.7.25</td>
-        </tr>
-        <tr>
-            <td>版本1.3.1</td>
-            <td>1、phoenix_web：修复xpath作数据分离后带有'\'符号的不能正常使用问题，增加了用例类型分类<br>
-				2、phoenix_webdriver：修复webElementLinkFinder方法数据分离无效的问题，增加了对接口测试支持<br>
-				3、phoenix_develop增加了几个应用案例，如如何做接口测试等<br>
-				4、phoenix_web：修复通过编辑任务添加的定时任务策略不生效问题<br>
-				5、phoenix_node：增加了接口测试用例类型支持，与webUI不同的是，接口用例使用独立的多个线程执行，而webUI是单线程。<br>
-				6、phoenix_interface：增加了接口测试API<br>
-				7、phoenix_webdriver:增加了Linux系统下chrome，Firefox，PhantomJs的支持，但不支持IEDriver
-			</td>
-            <td>2015.7.10</td>
         </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
