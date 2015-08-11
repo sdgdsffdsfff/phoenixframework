@@ -44,8 +44,11 @@
             <td>版本1.3.5</td>
             <td>1、phoenix_db：封装了Druid，通过Druid可以轻量级的对其他数据库进行操作<br>
 				2、phoenix_node：增加在执行过程中对第三方数据库进行操作<br>
-				3、phoenix_web：优化对异常信息的处理
-				4、spring版本从3.1.2.Release升级到3.2.9.Release
+				3、phoenix_web：优化对异常信息的处理<br>
+				4、phoenix_interface：增加对cookie，host，proxy等设置<br>
+				其他：<br>
+				1、spring版本从3.1.2.Release升级到3.2.9.Release
+				2、增加对jetty9的支持
 			</td>
             <td>2015.8.11</td>
         </tr>
