@@ -380,11 +380,11 @@ public class DataController {
 		CaseBean caseBean = null;
 		if(sheetContent.getCaseId() != null)caseBean = caseService.getCaseBean(Integer.parseInt(sheetContent.getCaseId()));
 		else if(sheetContent.getCaseName() != null)caseBean = caseService.getCaseBeanByName(sheetContent.getCaseName());
-		System.out.println(sheetContentDTO.getCaseId()+"    "+caseBean.getId());
 		if(!sheetContentDTO.getCaseId().equals(caseBean.getId()+"")){
 			errorInfo = "当前用例是：[ "+sheetContentDTO.getCaseName()+" ] ，数据表中的数据不属于当前用例";
 			model.addAttribute("errorInfo", errorInfo);
 			model.addAttribute("casename", sheetContentDTO.getCaseName());
+			f.delete();
 			return "data/importData";
 		}
 		if(sheetContentDTO.getIsRewrite()){
