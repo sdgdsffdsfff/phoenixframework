@@ -46,6 +46,7 @@
 				2、phoenix_node：增加在执行过程中对第三方数据库进行操作<br>
 				3、phoenix_web：优化对异常信息的处理<br>
 				4、phoenix_interface：增加对cookie，proxy等设置<br>
+				5、phoenix_web：在数据批次导入界面，增加选择的数据表中的用例与界面用例是否一致的判断<br>
 				其他：<br>
 				1、spring版本从3.1.2.Release升级到3.2.9.Release
 				2、增加对jetty 9 的支持

@@ -39,7 +39,9 @@
     <tr>
         <td width="10%" class="tableleft"></td>
         <td>
-			为用例：[ ${caseBean.caseName } ]批量导入数据，支持xls和xlsx。导入前请确认数据文件格式，否则会导入失败。
+        	<sf:input type="hidden" path="caseId" value="${caseBean.id }"></sf:input>
+        	<sf:input type="hidden" path="caseName" value="${caseBean.caseName }"></sf:input>
+			为用例：[ ${caseBean.caseName }${casename } ]批量导入数据，支持xls和xlsx。导入前请确认数据文件格式，否则会导入失败。
         </td>
     </tr>
     <tr>

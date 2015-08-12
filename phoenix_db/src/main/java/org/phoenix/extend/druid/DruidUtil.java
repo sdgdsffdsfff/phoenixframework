@@ -9,13 +9,25 @@ import java.sql.SQLException;
 
 import com.alibaba.druid.pool.DruidDataSource;
 /**
- * JDBC封装类
- * @author DC
+ * 对Druid的封装，便于使用
+ * @author mengfeiyang
  *
  */
 public class DruidUtil{
     private static DruidDataSource dataSource  = new DruidDataSource();
     public static ThreadLocal<Connection> container = new ThreadLocal<Connection>();
+    
+    /**
+     * 初始化配置，其他的一些初始配置：
+     *  dataSource.setInitialSize(2);
+        dataSource.setMaxActive(20);
+        dataSource.setMinIdle(0);
+        dataSource.setMaxWait(60000);
+        dataSource.setPoolPreparedStatements(false);
+     * @param url
+     * @param username
+     * @param password
+     */
     public static void config(String url,String username, String password){
         dataSource.setUrl(url);
         dataSource.setUsername(username);
