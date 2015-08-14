@@ -27,6 +27,7 @@ public class ContactJieKou extends WebElementActionProxy{
 	private static String caseName = "接口测试用例";
 	public ContactJieKou() {
 	}
+	//@Test   //使用Jenkins执行此用例的方式,此Test为：org.testng.annotations.Test
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
 		init(caseName,arg0);

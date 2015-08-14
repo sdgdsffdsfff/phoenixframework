@@ -5,12 +5,12 @@
   <parent>
   	<groupId>org.phoenixframe</groupId>
   	<artifactId>phoenix_parent</artifactId>
-  	<version>1.3.4</version>
+  	<version>1.3.5</version>
   	<relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>phoenix_db</artifactId>
-  <description>对hibernate4的封装</description>
+  <description>对hibernate4的封装。封装了Druid，通过Druid可以轻量级的对其他数据库进行操作</description>
   <packaging>jar</packaging>
 
   <name>phoenix_db</name>

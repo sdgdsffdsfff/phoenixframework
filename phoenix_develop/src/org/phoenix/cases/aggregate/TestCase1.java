@@ -14,6 +14,8 @@ import org.phoenix.model.UnitLogBean;
  */
 public class TestCase1 extends WebElementActionProxy{
 	private String caseName = "用户注册";
+	
+	//@Test   //使用Jenkins执行此用例的方式,此Test为：org.testng.annotations.Test
 	@Override
 	public LinkedList<UnitLogBean> run(CaseLogBean arg0) {
 		init(caseName,arg0);

@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.phoenixframe</groupId>
     <artifactId>phoenix_parent</artifactId>
-    <version>1.3.4</version>
+    <version>1.3.5</version>
     <relativePath>../phoenix_parent/pom.xml</relativePath>
   </parent>
   
   <artifactId>phoenix_interface</artifactId>
-  <description>增加了接口测试API</description>
+  <description>增加对cookie，host，proxy等设置</description>
   <packaging>jar</packaging>
 
   <name>phoenix_interface</name>

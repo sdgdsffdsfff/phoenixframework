@@ -357,6 +357,8 @@ public class DataController {
 	 */
 	@RequestMapping(value="/import/{cid}",method=RequestMethod.POST)
 	public String importDatas(@Valid SheetContentDTO sheetContentDTO, BindingResult br ,@RequestParam("attachs")MultipartFile attach,HttpServletRequest req,Model model){
+		model.addAttribute("casename", sheetContentDTO.getCaseName());
+		model.addAttribute("caseid", sheetContentDTO.getCaseId());
 		if(br.hasErrors())return "data/importData";
 		ExcelUtil excelUtil = new ExcelUtil();
 		String realpath = req.getSession().getServletContext().getRealPath("/resources/upload");
@@ -382,9 +384,7 @@ public class DataController {
 		else if(sheetContent.getCaseName() != null)caseBean = caseService.getCaseBeanByName(sheetContent.getCaseName());
 		if(!sheetContentDTO.getCaseId().equals(caseBean.getId()+"")){
 			errorInfo = "当前用例是：[ "+sheetContentDTO.getCaseName()+" ] ，数据表中的数据不属于当前用例";
-			model.addAttribute("errorInfo", errorInfo);
-			model.addAttribute("casename", sheetContentDTO.getCaseName());
-			f.delete();
+			model.addAttribute("errorInfo", errorInfo);			f.delete();
 			return "data/importData";
 		}
 		if(sheetContentDTO.getIsRewrite()){

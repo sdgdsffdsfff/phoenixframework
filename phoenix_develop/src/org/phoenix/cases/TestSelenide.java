@@ -11,6 +11,7 @@ import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.phoenix.action.WebElementAction;
 
@@ -24,6 +25,13 @@ public class TestSelenide {
 		System.setProperty("webdriver.ie.driver", 
 				WebElementAction.class.getResource("/").getPath()+"drivers/IEDriverServer64.exe");
 		setWebDriver(new InternetExplorerDriver());
+	}
+	
+	@Test
+	public void test03(){
+		open("http://lianmeng.360.cn");
+		WebElement w = $(".control").findElementByTagName("img");
+		w.getSize();
 	}
 	
 	@Test
