@@ -18,6 +18,7 @@
 3、phoenix_web：优化对异常信息的处理<br>
 4、phoenix_interface：增加对cookie，host，proxy等设置<br>
 5、phoenix_web：在数据批次导入界面，增加选择的数据表中的用例与界面用例是否一致的判断<br>
+6、phoenix_webdriver:增加对Socket服务器连接的支持<br>
 <br>
 系统名称：自动化测试平台<br> 
 系统介绍： <br>

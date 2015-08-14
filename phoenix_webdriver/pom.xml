@@ -10,7 +10,7 @@
   </parent>
   
   <artifactId>phoenix_webdriver</artifactId>
-  <description>接口测试增加了加载批量数据以参数化功能</description>
+  <description>接口测试增加了加载批量数据以参数化功能;增加对Socket服务器连接的支持</description>
   <packaging>jar</packaging>
 
   <name>phoenix_webdriver</name>
@@ -38,6 +38,10 @@
 	<dependency>
 	    <groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-net</groupId>
+		<artifactId>commons-net</artifactId>
 	</dependency>
 	<dependency>
 		<groupId>org.aspectj</groupId>

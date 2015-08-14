@@ -47,11 +47,12 @@
 				3、phoenix_web：优化对异常信息的处理<br>
 				4、phoenix_interface：增加对cookie，proxy等设置<br>
 				5、phoenix_web：在数据批次导入界面，增加选择的数据表中的用例与界面用例是否一致的判断<br>
+				6、phoenix_webdriver:增加对Socket服务器连接方法<br>
 				其他：<br>
 				1、spring版本从3.1.2.Release升级到3.2.9.Release
 				2、增加对jetty 9 的支持
 			</td>
-            <td>2015.8.11</td>
+            <td>2015.8.15</td>
         </tr>
         <tr>
             <td>版本1.3.4</td>
@@ -79,7 +80,7 @@
         </tr>
         <tr><th colspan="3" align="center">联系方式</th></tr>
         <tr>
-           <td>mengfeiyang</td>
+           <td>email</td>
            <td colspan="2">5156meng.feiyang@163.com</td>
         </tr>
         <tr>
