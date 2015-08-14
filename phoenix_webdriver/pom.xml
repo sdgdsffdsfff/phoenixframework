@@ -10,7 +10,7 @@
   </parent>
   
   <artifactId>phoenix_webdriver</artifactId>
-  <description>接口测试增加了加载批量数据以参数化功能;增加对Socket服务器连接的支持</description>
+  <description>接口测试增加了加载批量数据以参数化功能;增加对Socket服务器连接的支持;删除了原自带的驱动，使体积减小到了64kb，方便引入</description>
   <packaging>jar</packaging>
 
   <name>phoenix_webdriver</name>
